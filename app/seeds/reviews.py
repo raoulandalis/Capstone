@@ -13,22 +13,22 @@ def seed_reviews():
         content='Content 2 description', rating=3, post_id=2, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review3= Review(
-        content='Content 1 description', rating=4, post_id=3, user_id=3, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Content 3 description', rating=4, post_id=3, user_id=3, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review4= Review(
-        content='Content 1 description', rating=2, post_id=4, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Content 4 description', rating=2, post_id=4, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review5= Review(
-        content='Content 1 description', rating=5, post_id=5, user_id=5, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Content 5 description', rating=5, post_id=5, user_id=5, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review6= Review(
-        content='Content 1 description', rating=3, post_id=6, user_id=6, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Content 6 description', rating=3, post_id=6, user_id=6, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review7= Review(
-        content='Content 1 description', rating=4, post_id=7, user_id=7, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Content 7 description', rating=4, post_id=7, user_id=7, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review8= Review(
-        content='Content 1 description', rating=3, post_id=8, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Content 8 description', rating=3, post_id=8, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
 
     reviews = [review1, review2, review3, review4, review5, review6, review7, review8]
