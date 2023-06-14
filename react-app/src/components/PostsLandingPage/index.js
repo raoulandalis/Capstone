@@ -12,7 +12,6 @@ const PostsLanding = () => {
     const posts = Object.values(useSelector(state => state.posts))
     const user = useSelector(state => state.session.user)
 
-
     useEffect(() => {
         dispatch(getAllPosts())
     }, [dispatch])
