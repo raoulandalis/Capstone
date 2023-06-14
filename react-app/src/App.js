@@ -6,6 +6,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import PostsLanding from "./components/PostsLandingPage";
+import NewPostPage from "./components/PostsLandingPage/NewPostPage"
+import PostDetailPage from "./components/PostDetailPage";
+import UpdatePost from "./components/PostDetailPage/UpdatePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +30,15 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/create">
+            <NewPostPage />
+          </Route>
+          <Route path="/posts/:postId/update">
+            <UpdatePost />
+          </Route>
+          <Route path="/posts/:postId">
+            <PostDetailPage />
           </Route>
         </Switch>
       )}

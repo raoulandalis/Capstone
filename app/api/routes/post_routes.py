@@ -26,22 +26,9 @@ def validation_errors_to_error_messages(validation_errors):
 def get_posts():
 
     posts = Post.query.all()
-    reviews = Review.query.all()
-
-
 
     post_list = [post.to_dict() for post in posts]
-    review_list = [review.to_dict() for review in reviews]
-    # print('============================================== reviews', review_list)
 
-    # for post in post_list:
-    #     new_review_list = []
-    #     for review in review_list:
-    #         if post['id'] == review['post_id']:
-    #             new_review_list.append(review)
-    #             post['rating'] = new_review_list[0]['rating']
-
-    # returns normalized obj
     res = {}
 
     for post in post_list:
@@ -50,6 +37,15 @@ def get_posts():
 
     return res
 
+
+# get single post may not need!!
+# @posts.route("/<int:id>/")
+# # @login_required
+# def single_post(id):
+
+#     post = Post.query.get(id)
+
+#     return post.to_dict()
 
 
 #create a post
@@ -89,14 +85,14 @@ def update_post(id):
 
     if form.validate_on_submit():
         post = Post.query.get(id)
-        post.name = form.data['name'],
-        post.description = form.data['description'],
-        post.genre = form.data['genre'],
-        post.post_image = form.data['post_image'],
-        post.rating = form.data['rating'],
+        post.name = form.data['name']
+        post.description = form.data['description']
+        post.genre = form.data['genre']
+        post.post_image = form.data['post_image']
+        post.rating = form.data['rating']
         post.created_at = date.today()
 
-        db.session.commt()
+        db.session.commit()
         return {'resPost': post.to_dict()}
 
     if form.errors:
