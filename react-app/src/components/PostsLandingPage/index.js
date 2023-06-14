@@ -14,8 +14,8 @@ const PostsLanding = () => {
 
     console.log('========================== posts', posts)
 
-    //WAIT
-    // if (!posts) return null
+    // WAIT
+    if (!posts) return null
 
 
     return (
@@ -26,7 +26,7 @@ const PostsLanding = () => {
                 return (
                     <div key={post.id} className="post-tiles">
                         <img src={post.post_image} style={{height: '300px', width: '200px', objectFit:'cover'}}></img>
-                        <h2>{post.name}</h2>
+                        <h2>{post.name} - {post.rating} Stars</h2>
                         <h3>{post.genre}</h3>
                         <p>{post.description}</p>
                         <p>Posted by {post.user.username}</p>
