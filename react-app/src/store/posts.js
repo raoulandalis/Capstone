@@ -60,16 +60,19 @@ export const createPost = (post) => async (dispatch) => {
 }
 
 export const updatePost = (postId, post) => async (dispatch) => {
+    console.log("am i outside ==============================================")
     const response = await fetch(`/api/posts/${postId}/update`, {
         method: 'PUT',
         body: post
     })
     if (response.ok) {
+        console.log("am i in here ==============================================")
         const {resPost} = await response.json()
         dispatch(editPost(resPost))
         return resPost
     } else {
         const data = await response.json()
+        console.log("this is fucked ===============================", data)
         if (data.errors) {
             return data
         }

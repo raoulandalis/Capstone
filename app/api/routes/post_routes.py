@@ -85,14 +85,14 @@ def update_post(id):
 
     if form.validate_on_submit():
         post = Post.query.get(id)
-        post.name = form.data['name'],
-        post.description = form.data['description'],
-        post.genre = form.data['genre'],
-        post.post_image = form.data['post_image'],
-        post.rating = form.data['rating'],
+        post.name = form.data['name']
+        post.description = form.data['description']
+        post.genre = form.data['genre']
+        post.post_image = form.data['post_image']
+        post.rating = form.data['rating']
         post.created_at = date.today()
 
-        db.session.commt()
+        db.session.commit()
         return {'resPost': post.to_dict()}
 
     if form.errors:

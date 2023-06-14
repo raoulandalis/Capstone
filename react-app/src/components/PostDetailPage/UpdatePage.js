@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPost } from '../../store/posts';
-import { useModal } from '../../context/Modal'
-import './PostLandingPage.css'
+import { useParams, useHistory } from "react-router-dom"
+import { updatePost } from '../../store/posts';
+import '../PostsLandingPage/PostLandingPage.css'
 
-const NewPostForm = () => {
+const UpdatePost = () => {
+
+    const { postId } = useParams()
     const dispatch = useDispatch();
+    const history = useHistory()
+
     const posts =useSelector(state => state.posts);
     // const user = useSelector(state.session.user)
-    const {closeModal} = useModal();
 
     //state slices
     const [name, setName] = useState('')
@@ -18,6 +21,7 @@ const NewPostForm = () => {
     const [rating, setRating] = useState('')
     const [errors, setErrors] = useState('')
     const [submitted, setSubmitted] = useState(false)
+
 
     useEffect(() => {
         const error = {}
@@ -29,7 +33,10 @@ const NewPostForm = () => {
         setErrors(error)
     }, [name, description, genre, post_image, rating])
 
+
+
     const submitForm = async (e) => {
+        
         e.preventDefault()
         setSubmitted(true)
 
@@ -42,8 +49,7 @@ const NewPostForm = () => {
 
         //error handling here
         if (!Object.values(errors).length) {
-            const data = await dispatch(createPost(formData));
-            closeModal()
+            const data = await dispatch(updatePost(postId, formData));
         }
 
         setName('')
@@ -56,9 +62,10 @@ const NewPostForm = () => {
 
     if (!posts) return null
 
+
     return (
         <>
-        <h2>New Post Modal</h2>
+        <h2 style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>Update Post</h2>
         <div className='post-form-house'>
             <form id="p-form" onSubmit={submitForm}>
                 <label>
@@ -81,11 +88,11 @@ const NewPostForm = () => {
                     Rating:
                     <input type="number" name="rating" min="1" max="5" onChange={(e) => setRating(e.target.value)}/>
                 </label>
-                <button>POST</button>
+                <button>Update</button>
             </form>
             </div>
         </>
     )
 }
 
-export default NewPostForm
+export default UpdatePost
