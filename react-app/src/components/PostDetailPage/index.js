@@ -15,16 +15,21 @@ const PostDetailPage = () => {
 
     const post = posts[postId]
 
+    console.log("post =================================", post)
+    console.log("user ================================", user)
+
     useEffect(() => {
         dispatch(getAllPosts())
     }, [dispatch])
 
     if (!post) return null
 
+    const PostOwner = post.user.id === user.id
+
     return (
         <>
         <h2 style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>Post Detail Page...</h2>
-        {user &&
+        {PostOwner &&
             <button onClick={() => history.push(`/posts/${postId}/update`)}>Update Post</button>
         }
         <div className="post-detail-house" style={{display:'flex', justifyContent:'center', gap: '50px', marginTop: '50px'}}>
