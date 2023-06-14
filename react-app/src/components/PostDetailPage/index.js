@@ -2,7 +2,8 @@ import { useParams, useHistory } from "react-router-dom"
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts} from '../../store/posts';
-import OpenModalButton from '../OpenModalButton';
+import OpenModalButton from '../OpenModalButton'
+import DeletePostModal from "./DeletePostModal";
 
 const PostDetailPage = () => {
 
@@ -20,12 +21,21 @@ const PostDetailPage = () => {
     }, [dispatch])
 
     if (!post) return null
+    if (!user) return null
+
+    const PostOwner = post.user.id === user.id
 
     return (
         <>
         <h2 style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>Post Detail Page...</h2>
-        {user &&
+        {PostOwner &&
+            <>
             <button onClick={() => history.push(`/posts/${postId}/update`)}>Update Post</button>
+            <OpenModalButton
+                buttonText={'Delete Post'}
+                modalComponent={<DeletePostModal postId={postId}/>}
+            />
+            </>
         }
         <div className="post-detail-house" style={{display:'flex', justifyContent:'center', gap: '50px', marginTop: '50px'}}>
             <div>
