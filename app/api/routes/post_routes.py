@@ -97,3 +97,13 @@ def update_post(id):
 
     if form.errors:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+#delete a post
+@posts.route("/<int:id>/delete", methods=["DELETE"])
+@login_required
+def delete_post(id):
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+    return {"res": "Successfully deleted"}

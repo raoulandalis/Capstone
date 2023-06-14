@@ -2,6 +2,7 @@
 const GET_POSTS = 'posts/GET_POSTS'
 const CREATE_POST = 'posts/CREATE_POST'
 const EDIT_POST = 'posts/EDIT_POST'
+const DELETE_POST = 'posts/DE'
 
 //action creators
 const getPosts = (posts) => {
@@ -22,6 +23,13 @@ const editPost = (post) => {
     return {
         type: EDIT_POST,
         post
+    }
+}
+
+const removePost = (postId) => {
+    return {
+        type: DELETE_POST,
+        postId
     }
 }
 
@@ -60,22 +68,28 @@ export const createPost = (post) => async (dispatch) => {
 }
 
 export const updatePost = (postId, post) => async (dispatch) => {
-    console.log("am i outside ==============================================")
     const response = await fetch(`/api/posts/${postId}/update`, {
         method: 'PUT',
         body: post
     })
     if (response.ok) {
-        console.log("am i in here ==============================================")
         const {resPost} = await response.json()
         dispatch(editPost(resPost))
         return resPost
     } else {
         const data = await response.json()
-        console.log("this is fucked ===============================", data)
         if (data.errors) {
             return data
         }
+    }
+}
+
+export const deletePost = (postId) => async (dispatch) => {
+    const response = await fetch(`/api/posts/${postId}/delete`, {
+        method: "DELETE"
+    })
+    if (response.ok) {
+        dispatch(removePost(postId))
     }
 }
 
@@ -97,6 +111,10 @@ const postsReducer = (state = initialState, action) => {
             newState = { ...state };
             newState[action.post.id] = action.post
             return newState;
+        case DELETE_POST:
+            newState = { ...state };
+            delete newState[action.postId]
+            return newState
         default:
             return state;
     }
