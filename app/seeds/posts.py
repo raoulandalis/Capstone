@@ -8,13 +8,13 @@ fake = Faker()
 
 def seed_posts():
     post1 = Post(
-        name='Fake Movie 1', description='Fake Description 1', genre='Fake Genre 1', post_image='https://m.media-amazon.com/images/I/71FtQA0+fiL._AC_UF894,1000_QL80_.jpg', user_id=1, created_at=fake.date_between(start_date='-5y', end_date='today')
+        name='Fake Movie 1', description='Fake Description 1', genre='Fake Genre 1', post_image='https://m.media-amazon.com/images/I/71FtQA0+fiL._AC_UF894,1000_QL80_.jpg', rating= 5, user_id=1, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     post2 = Post(
-        name='Fake Movie 2', description='Fake Description 2', genre='Fake Genre 2', post_image='https://i0.wp.com/batman-news.com/wp-content/uploads/2023/04/The-Flash-Movie-Poster-International-01.jpeg?fit=1382%2C2048&quality=80&strip=info&ssl=1', user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
+        name='Fake Movie 2', description='Fake Description 2', genre='Fake Genre 2', post_image='https://i0.wp.com/batman-news.com/wp-content/uploads/2023/04/The-Flash-Movie-Poster-International-01.jpeg?fit=1382%2C2048&quality=80&strip=info&ssl=1', rating= 3, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     post3 = Post(
-        name='Fake Movie 3', description='Fake Description 3', genre='Fake Genre 3', post_image='https://www.joblo.com/wp-content/uploads/2023/02/air-final-poster.jpg', user_id=3, created_at=fake.date_between(start_date='-5y', end_date='today')
+        name='Fake Movie 3', description='Fake Description 3', genre='Fake Genre 3', post_image='https://www.joblo.com/wp-content/uploads/2023/02/air-final-poster.jpg', rating= 4, user_id=3, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     # post4 = Post(
     #     name='Fake Movie 4', description='Fake Description 4', genre='Fake Genre 4', post_image='urlimage4', user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')

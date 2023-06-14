@@ -17,6 +17,7 @@ class Post(db.Model):
     description = db.Column(db.String(2000), nullable=False)
     genre = db.Column(db.String(50), nullable=False)
     post_image = db.Column(db.String(2000), nullable=False)
+    rating = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     created_at = db.Column(db.Date(), nullable=False)
 
@@ -33,6 +34,7 @@ class Post(db.Model):
             'description': self.description,
             'genre': self.genre,
             'post_image': self.post_image,
+            'rating': self.rating,
             'created_at': self.created_at,
             'user': {
                 'id': self.user.id,
@@ -41,7 +43,6 @@ class Post(db.Model):
                 'last_name': self.user.last_name,
                 'email': self.user.email
             },
-            'rating': {}
         }
 
 class Review(db.Model):

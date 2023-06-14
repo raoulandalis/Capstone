@@ -6,7 +6,17 @@
 
 .landing-house {
     display: flex;
+    flex-wrap: wrap;
     margin-top: 100px;
     gap: 20px;
     justify-content: space-around;
+}
+
+.post-tiles {
+    border: 1px solid blue;
+}
+
+.post-form-house > #p-form {
+    display: flex;
+    flex-direction: column;
 }

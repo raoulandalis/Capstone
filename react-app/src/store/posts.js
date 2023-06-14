@@ -1,11 +1,19 @@
 //actions
 const GET_POSTS = 'posts/GET_POSTS'
+const CREATE_POST = 'posts/CREATE_POST'
 
 //action creators
 const getPosts = (posts) => {
     return {
         type: GET_POSTS,
         posts
+    }
+}
+
+const addPost = (post) => {
+    return {
+        type: CREATE_POST,
+        post
     }
 }
 
@@ -25,6 +33,24 @@ export const getAllPosts = () => async (dispatch) => {
     }
 }
 
+export const createPost = (post) => async (dispatch) => {
+    const response = await fetch("/api/posts", {
+        method: "POST",
+        body: post
+    });
+
+    if (response.ok) {
+        const {resPost} = await response.json();
+        dispatch(addPost(resPost))
+        return resPost
+    } else {
+        const data = await response.json()
+        if (data.errors) {
+            return data
+        }
+    }
+}
+
 //initial state
 const initialState = {}
 
@@ -34,6 +60,10 @@ const postsReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_POSTS:
             newState = {...action.posts};
+            return newState;
+        case CREATE_POST:
+            newState = {...state};
+            newState[action.post.id] = action.post
             return newState;
         default:
             return state;
