@@ -9,6 +9,7 @@ import './PostLandingPage.css'
 const PostsLanding = () => {
     const dispatch = useDispatch()
     const posts = Object.values(useSelector(state => state.posts))
+    const user = useSelector(state => state.session.user)
 
 
     useEffect(() => {
@@ -23,11 +24,13 @@ const PostsLanding = () => {
     return (
         <>
         <div className="top-landing">
-        <h2 style={{display: 'flex', justifyContent: 'center'}}>Post Landing Page...</h2>
+        <h2 style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>Post Landing Page...</h2>
+        {user &&
         <OpenModalButton
             buttonText={'NEW POST'}
             modalComponent={<NewPostModal/>}
         />
+        }
         </div>
         <div className='landing-house'>
             {posts.map(post => {

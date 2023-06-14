@@ -50,8 +50,11 @@ def get_posts():
 
     return res
 
+
+
+#create a post
 @posts.route("", methods=["POST"])
-# @login_required
+@login_required
 def create_posts():
     form = PostForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
@@ -71,6 +74,30 @@ def create_posts():
         db.session.add(res)
         db.session.commit()
         return {'resPost': res.to_dict()}
+
+    if form.errors:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+#update a post
+@posts.route("/<int:id>/update", methods=["PUT"])
+@login_required
+def update_post(id):
+
+    form = PostForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        post = Post.query.get(id)
+        post.name = form.data['name'],
+        post.description = form.data['description'],
+        post.genre = form.data['genre'],
+        post.post_image = form.data['post_image'],
+        post.rating = form.data['rating'],
+        post.created_at = date.today()
+
+        db.session.commt()
+        return {'resPost': post.to_dict()}
 
     if form.errors:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
