@@ -25,9 +25,21 @@ def validation_errors_to_error_messages(validation_errors):
 # @login_required
 def get_posts():
 
-    posts = Post.query.order_by(Post.created_at.desc()).all()
+    posts = Post.query.all()
+    reviews = Review.query.all()
+
+
 
     post_list = [post.to_dict() for post in posts]
+    review_list = [review.to_dict() for review in reviews]
+    # print('============================================== reviews', review_list)
+
+    # for post in post_list:
+    #     new_review_list = []
+    #     for review in review_list:
+    #         if post['id'] == review['post_id']:
+    #             new_review_list.append(review)
+    #             post['rating'] = new_review_list[0]['rating']
 
     # returns normalized obj
     res = {}
@@ -37,3 +49,55 @@ def get_posts():
         res[post_id] = post
 
     return res
+
+
+
+#create a post
+@posts.route("", methods=["POST"])
+@login_required
+def create_posts():
+    form = PostForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        selected_user = User.query.get(current_user.id)
+
+        res = Post(
+            name = form.data['name'],
+            description = form.data['description'],
+            genre = form.data['genre'],
+            post_image = form.data['post_image'],
+            rating = form.data['rating'],
+            created_at = date.today(),
+            user = selected_user
+        )
+        db.session.add(res)
+        db.session.commit()
+        return {'resPost': res.to_dict()}
+
+    if form.errors:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+#update a post
+@posts.route("/<int:id>/update", methods=["PUT"])
+@login_required
+def update_post(id):
+
+    form = PostForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        post = Post.query.get(id)
+        post.name = form.data['name'],
+        post.description = form.data['description'],
+        post.genre = form.data['genre'],
+        post.post_image = form.data['post_image'],
+        post.rating = form.data['rating'],
+        post.created_at = date.today()
+
+        db.session.commt()
+        return {'resPost': post.to_dict()}
+
+    if form.errors:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400

@@ -13,6 +13,7 @@ class PostForm(FlaskForm):
     description = TextAreaField("Description", validators=[DataRequired(), text_length])
     genre = StringField("Genre", validators=[DataRequired()])
     post_image = StringField("Post Image", validators=[DataRequired()])
+    rating = IntegerField("Rating", validators=[DataRequired()])
     created_at = DateField("Date")
     submit = SubmitField("Submit")
 
