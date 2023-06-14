@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import PostsLanding from "./components/PostsLandingPage";
+import PostDetailPage from "./components/PostDeatilPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/post/:postId">
+            <PostDetailPage />
           </Route>
         </Switch>
       )}
