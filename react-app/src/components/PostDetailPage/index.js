@@ -5,6 +5,7 @@ import { getAllPosts} from '../../store/posts';
 import { getAllReviews } from "../../store/reviews";
 import OpenModalButton from '../OpenModalButton'
 import DeletePostModal from "./DeletePostModal";
+import CreateReviewModal from "./CreateReviewModal"
 
 const PostDetailPage = () => {
 
@@ -15,25 +16,28 @@ const PostDetailPage = () => {
     const posts = useSelector(state => state.posts)
     const user = useSelector(state => state.session.user)
     const reviews = Object.values(useSelector(state => state.reviews))
+    const single_review = useSelector(state => state.reviews)
 
     const post = posts[postId]
+    console.log("posts=====================================================", posts)
 
     useEffect(() => {
         dispatch(getAllPosts())
         dispatch(getAllReviews())
     }, [dispatch])
 
-    // console.log("reviews====================================================", reviews)
+    console.log("reviews====================================================", reviews)
 
     if (!post) return null
     if (!user) return null
 
-    const PostOwner = post.user.id === user.id
+    const postOwner = post.user.id === user.id
+
 
     return (
         <>
         <h2 style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>Post Detail Page...</h2>
-        {PostOwner &&
+        {postOwner &&
             <>
             <button onClick={() => history.push(`/posts/${postId}/update`)}>Update Post</button>
             <OpenModalButton
@@ -57,13 +61,18 @@ const PostDetailPage = () => {
                     return (
                         <>
                         <div>
-                            <div>{review.rating}</div>
+                            <div>{review.rating} Stars</div>
                             <div>{review.content}</div>
                             <div>{review.user.username}</div>
                         </div>
                         </>
                     )}
                 })}
+                {/* add display logic here */}
+                <OpenModalButton
+                            buttonText={'Post Review'}
+                            modalComponent={<CreateReviewModal postId={post.id}/>}
+                        />
             </div>
         </div>
         </>

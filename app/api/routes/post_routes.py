@@ -107,3 +107,27 @@ def delete_post(id):
     db.session.delete(post)
     db.session.commit()
     return {"res": "Successfully deleted"}
+
+
+
+#create a review
+@posts.route("/<int:id>/reviews", methods=['POST'])
+@login_required
+def post_review(id):
+    form = ReviewForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        selected_user = User.query.get(current_user.id)
+        res = Review(
+            content = form.data['content'],
+            rating = form.data['rating'],
+            user = selected_user,
+            post_id = id,
+            created_at = date.today()
+        )
+        db.session.add(res)
+        db.session.commit()
+        return {"resReview": res.to_dict()}
+
+    if form.errors:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400

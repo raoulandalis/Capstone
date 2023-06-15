@@ -18,9 +18,11 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{error}')
     return errorMessages
 
+
+
 #get all reviews
 @reviews.route("")
-# @login_required
+@login_required
 def get_reviews():
 
     reviews = Review.query.all()
@@ -34,3 +36,7 @@ def get_reviews():
         res[review_id] = review
 
     return res
+
+
+#create a review double check the route for this might put it in post route
+# @reviews.route("", methods=['POST'])
