@@ -38,5 +38,23 @@ def get_reviews():
     return res
 
 
-#create a review double check the route for this might put it in post route
-# @reviews.route("", methods=['POST'])
+
+#update reviews
+@reviews.route("/<int:id>/update", methods=["PUT"])
+@login_required
+def update_review(id):
+
+    form = ReviewForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        review = Review.query.get(id)
+        review.content = form.data['content']
+        review.rating = form.data['rating']
+        review.created_at = date.today()
+
+        db.session.commit()
+        return {'resReview': review.to_dict()}
+
+    if form.errors:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400

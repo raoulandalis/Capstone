@@ -6,6 +6,7 @@ import { getAllReviews } from "../../store/reviews";
 import OpenModalButton from '../OpenModalButton'
 import DeletePostModal from "./DeletePostModal";
 import CreateReviewModal from "./CreateReviewModal"
+import UpdateReviewModal from "./UpdateReview";
 
 const PostDetailPage = () => {
 
@@ -19,14 +20,11 @@ const PostDetailPage = () => {
     const single_review = useSelector(state => state.reviews)
 
     const post = posts[postId]
-    console.log("posts=====================================================", posts)
 
     useEffect(() => {
         dispatch(getAllPosts())
         dispatch(getAllReviews())
     }, [dispatch])
-
-    console.log("reviews====================================================", reviews)
 
     if (!post) return null
     if (!user) return null
@@ -65,14 +63,19 @@ const PostDetailPage = () => {
                             <div>{review.content}</div>
                             <div>{review.user.username}</div>
                         </div>
+                        {review.user.id === user.id &&
+                        <OpenModalButton
+                            buttonText={'Update Review'}
+                            modalComponent={<UpdateReviewModal reviewId={review.id}/>}
+                        />}
                         </>
                     )}
                 })}
-                {/* add display logic here */}
+                {/* add post review display logic here */}
                 <OpenModalButton
-                            buttonText={'Post Review'}
-                            modalComponent={<CreateReviewModal postId={post.id}/>}
-                        />
+                    buttonText={'Post Review'}
+                    modalComponent={<CreateReviewModal postId={post.id}/>}
+                />
             </div>
         </div>
         </>

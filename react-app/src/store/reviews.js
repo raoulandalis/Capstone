@@ -1,6 +1,7 @@
 //actions
 const GET_REVIEWS = 'reviews/GET_REVIEWS';
 const POST_REVIEW = 'reviews/POST_REVIEW';
+const EDIT_REVIEW = 'reviews/EDIT_REVIEW';
 
 
 //action creators
@@ -15,6 +16,13 @@ const loadReviews = (reviews) => {
 const createReview = (review) => {
     return {
         type: POST_REVIEW,
+        review
+    }
+}
+
+const editReview = (review) => {
+    return {
+        type: EDIT_REVIEW,
         review
     }
 }
@@ -56,6 +64,23 @@ export const postReview = (postId, review) => async (dispatch) => {
 }
 
 
+export const updateReview = (reviewId, review) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/${reviewId}/update`, {
+        method: 'PUT',
+        body: review
+    })
+    if (response.ok) {
+        const { resReview } = await response.json();
+        dispatch(editReview(resReview))
+        return resReview
+    } else {
+        const data = await response.json()
+        if (data.errors) {
+            return data
+        }
+    }
+}
+
 
 const initialState = {}
 //reducer
@@ -66,6 +91,10 @@ const reviewReducer = (state = initialState, action) => {
             newState = { ...action.reviews }
             return newState
         case POST_REVIEW:
+            newState = { ...state }
+            newState[action.review.id] = action.review
+            return newState
+        case EDIT_REVIEW:
             newState = { ...state }
             newState[action.review.id] = action.review
             return newState
