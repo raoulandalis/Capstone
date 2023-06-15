@@ -18,7 +18,7 @@ class PostForm(FlaskForm):
     submit = SubmitField("Submit")
 
 class ReviewForm(FlaskForm):
-    content = StringField("Content", validators=[DataRequired(), text_length])
+    content = TextAreaField("Content", validators=[DataRequired(), text_length])
     rating = IntegerField("Rating", validators=[DataRequired()])
     created_at = DateField("Date")
     submit = SubmitField("Submit")

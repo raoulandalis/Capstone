@@ -10,7 +10,7 @@ const UpdatePost = () => {
     const dispatch = useDispatch();
     const history = useHistory()
 
-    const posts =useSelector(state => state.posts);
+    const posts = useSelector(state => state.posts);
     // const user = useSelector(state.session.user)
 
     //state slices
@@ -36,7 +36,7 @@ const UpdatePost = () => {
 
 
     const submitForm = async (e) => {
-        
+
         e.preventDefault()
         setSubmitted(true)
 

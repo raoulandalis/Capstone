@@ -18,9 +18,11 @@ def validation_errors_to_error_messages(validation_errors):
             errorMessages.append(f'{error}')
     return errorMessages
 
+
+
 #get all reviews
 @reviews.route("")
-# @login_required
+@login_required
 def get_reviews():
 
     reviews = Review.query.all()
@@ -34,3 +36,25 @@ def get_reviews():
         res[review_id] = review
 
     return res
+
+
+
+#update reviews
+@reviews.route("/<int:id>/update", methods=["PUT"])
+@login_required
+def update_review(id):
+
+    form = ReviewForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        review = Review.query.get(id)
+        review.content = form.data['content']
+        review.rating = form.data['rating']
+        review.created_at = date.today()
+
+        db.session.commit()
+        return {'resReview': review.to_dict()}
+
+    if form.errors:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
