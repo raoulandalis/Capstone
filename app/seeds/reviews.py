@@ -7,13 +7,13 @@ fake = Faker()
 
 def seed_reviews():
     review1= Review(
-        content='Content 1 description', rating=4, post_id=1, user_id=1, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Content 1 description', rating=4, post_id=2, user_id=1, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review2= Review(
-        content='Content 2 description', rating=3, post_id=2, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Content 2 description', rating=3, post_id=3, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review3= Review(
-        content='Content 3 description', rating=4, post_id=3, user_id=3, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Content 3 description', rating=4, post_id=1, user_id=3, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     # review4= Review(
     #     content='Content 4 description', rating=2, post_id=4, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
