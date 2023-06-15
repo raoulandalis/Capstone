@@ -7,6 +7,7 @@ import OpenModalButton from '../OpenModalButton'
 import DeletePostModal from "./DeletePostModal";
 import CreateReviewModal from "./CreateReviewModal"
 import UpdateReviewModal from "./UpdateReview";
+import DeleteReviewModal from "./DeleteReviewModal";
 
 const PostDetailPage = () => {
 
@@ -65,13 +66,19 @@ const PostDetailPage = () => {
                         </div>
                         {review.user.id === user.id &&
                         <OpenModalButton
-                            buttonText={'Update Review'}
+                            buttonText={'Update'}
                             modalComponent={<UpdateReviewModal reviewId={review.id}/>}
+                        />}
+                        {<OpenModalButton
+                            buttonText={'Delete'}
+                            modalComponent={<DeleteReviewModal reviewId={review.id}/>}
                         />}
                         </>
                     )}
                 })}
                 {/* add post review display logic here */}
+                {/* if user.id === post.user.id NO btn*/}
+                {/* if user.id === review.user.id NO btn*/}
                 <OpenModalButton
                     buttonText={'Post Review'}
                     modalComponent={<CreateReviewModal postId={post.id}/>}
