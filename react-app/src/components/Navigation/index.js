@@ -1,23 +1,30 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
+
+	const history = useHistory();
 	const sessionUser = useSelector(state => state.session.user);
+	const user = useSelector(state => state.session.user);
 
 	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">Home</NavLink>
-			</li>
+		<div className="nav-house">
+			<div className="logo-container">
+				<NavLink exact to="/"><img src="https://i.imgur.com/8qodaIA.png" id="logo"></img></NavLink>
+			</div>
 			{isLoaded && (
-				<li>
+				<>
+				<div className="prof-btn">
+					{user &&
+					<i class="fa-solid fa-square-plus" style={{cursor:'pointer', fontSize:'25px'}}onClick={() => history.push("/create")}></i>}
 					<ProfileButton user={sessionUser} />
-				</li>
+				</div>
+				</>
 			)}
-		</ul>
+		</div>
 	);
 }
 

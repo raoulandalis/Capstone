@@ -5,3 +5,46 @@
 .hidden {
   display: none;
 }
+
+.nav-house {
+  display:flex;
+  justify-content: space-between;
+  /* position: sticky; */
+  top: 0px;
+  border-bottom: none;
+  background-color:#163564
+}
+
+#logo {
+  height: 60px;
+  margin-left: 100px;
+}
+
+.prof-btn {
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+  gap: 30px;
+}
+
+#profile-icon {
+  margin-right: 10px;
+  padding: 4px 4px;
+  border-radius: 12px;
+  background-color: #163564;
+  /* color: #0FB6DE; */
+  color: black;
+}
+
+.user-menu {
+  position: absolute;
+  width: 100px;
+  transform: translateX(-79%);
+  background-color: white;
+  border: 1px solid rgb(199, 192, 192);
+  box-shadow: 1px 1px 2px grey;
+  /* border-radius: var(--border-radius); */
+  padding: 1rem;
+  /* overflow: hidden; */
+  margin-top: 12px;
+}
