@@ -9,7 +9,8 @@
 .nav-house {
   display:flex;
   justify-content: space-between;
-  /* position: sticky; */
+  position: sticky;
+  z-index: 10;
   top: 0px;
   border-bottom: none;
   background-color:#163564
