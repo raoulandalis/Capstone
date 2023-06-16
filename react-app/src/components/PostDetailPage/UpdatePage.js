@@ -26,8 +26,10 @@ const UpdatePost = () => {
     useEffect(() => {
         const error = {}
         if (!name) error.name = "Name is required"
+        if (name.length < 5 || name.length > 50) error.name = "Name must be between 5 and 50 characters"
         if (!description) error.description = "Description is required"
         if (!genre) error.genre = "Genre is required"
+        if (genre.length < 5 || genre.length > 50) error.genre = "Name must be between 5 and 50 characters"
         if (!post_image) error.post_image = "Image is required"
         if (!rating) error.rating = "Rating is required"
         setErrors(error)
@@ -48,8 +50,19 @@ const UpdatePost = () => {
         formData.append("rating", rating)
 
         //error handling here
-        if (!Object.values(errors).length) {
-            const data = await dispatch(updatePost(postId, formData));
+        // if (!Object.values(errors).length) {
+        //     const data = await dispatch(updatePost(postId, formData));
+        // }
+        const data = await dispatch(updatePost(postId, formData));
+
+
+        if (data.errors) {
+            console.log("===================================", data.errors)
+            return setErrors(data.errors)
+        }
+
+        if (submitted && errors) {
+            setErrors('')
         }
 
         setName('')

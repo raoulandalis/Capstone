@@ -33,14 +33,30 @@ const UpdateReviewModal = ({reviewId}) => {
         formData.append("content", content)
         formData.append("rating", rating)
 
-        if (!Object.values(errors).length) {
-            const data = await dispatch(updateReview(reviewId, formData))
+        // if (!Object.values(errors).length) {
+        //     const data = await dispatch(updateReview(reviewId, formData))
 
-            setContent('')
-            setRating('')
-            setSubmitted(false)
-            closeModal()
+        //     setContent('')
+        //     setRating('')
+        //     setSubmitted(false)
+        //     closeModal()
+        // }
+
+        const data = await dispatch(updateReview(reviewId, formData))
+
+        if (data.errors) {
+            console.log("===================================", data.errors)
+            return setErrors(data.errors)
         }
+
+        if (submitted && errors) {
+            setErrors('')
+        }
+
+        setContent('')
+        setRating('')
+        setSubmitted(false)
+        closeModal()
     }
 
     if (!reviews) return null
@@ -51,6 +67,7 @@ const UpdateReviewModal = ({reviewId}) => {
         <div className="review-form-house">
             <form onSubmit={submitForm} style={{display: 'flex', flexDirection:'column'}}>
                 <label>
+                    {errors.content && submitted && < p style={{ color: "red" }}>{errors.content}</p>}
                     <textarea
                         value={content}
                         placeholder="Write a review..."
@@ -61,6 +78,7 @@ const UpdateReviewModal = ({reviewId}) => {
                 </label>
                 <label>
                     Rating:
+                    {errors.rating && submitted && < p style={{ color: "red" }}>{errors.rating}</p>}
                     <input type="number" name="rating" min="1" max="5" onChange={(e) => setRating(e.target.value)}/>
                 </label>
                 <button>POST</button>

@@ -57,7 +57,8 @@ def update_review(id):
         return {'resReview': review.to_dict()}
 
     if form.errors:
-        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+        # return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+        return {'errors': form.errors}, 400
 
 
 

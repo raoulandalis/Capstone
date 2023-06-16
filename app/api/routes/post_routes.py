@@ -72,7 +72,9 @@ def create_posts():
         return {'resPost': res.to_dict()}
 
     if form.errors:
-        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+        print("backend form=============================", validation_errors_to_error_messages(form.errors))
+        # return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+        return {'errors': form.errors}, 400
 
 
 #update a post
@@ -96,7 +98,8 @@ def update_post(id):
         return {'resPost': post.to_dict()}
 
     if form.errors:
-        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+        # return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+        return {'errors': form.errors}, 400
 
 
 #delete a post
@@ -130,4 +133,5 @@ def post_review(id):
         return {"resReview": res.to_dict()}
 
     if form.errors:
-        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+        # return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+        return {'errors': form.errors}, 400
