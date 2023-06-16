@@ -8,7 +8,7 @@ button {
     cursor: pointer
 }
 
-.landing-house {
+.post-landing-house {
     display: flex;
     flex-wrap: wrap;
     margin-top: 100px;
@@ -24,3 +24,23 @@ button {
     display: flex;
     flex-direction: column;
 }
+
+.top-landing {
+    background-image: url('https://i.imgur.com/EF5L0Xa.png');
+    background-size: cover;
+    /* object-fit: cover; */
+    background-repeat: no-repeat;
+    height: 450px;
+    /* width: 100% */
+}
+
+.bottom-landing {
+    margin-left: 10%;
+}
+
+.welcome-text {
+    color: white;
+    position: relative;
+    top: 20%;
+    transform: translateY(50%); /* Center the element vertically */
+  }

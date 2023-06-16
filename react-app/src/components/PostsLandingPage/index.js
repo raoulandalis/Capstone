@@ -25,12 +25,17 @@ const PostsLanding = () => {
     return (
         <>
         <div className="top-landing">
-        <h2 style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>Post Landing Page...</h2>
-        {user &&
-            <button onClick={() => history.push("/create")}>New Post</button>
-        }
+        <div className="bottom-landing">
+            <div className="welcome-text" style={{color:'white'}}>
+                <h1 style={{fontSize:'60px'}}>Welcome.</h1>
+                <h2>Unleash Your Inner Critic.</h2>
+            </div>
+            {/* {user &&
+                <button onClick={() => history.push("/create")}>New Post</button>
+            } */}
+            </div>
         </div>
-        <div className='landing-house'>
+        <div className='post-landing-house'>
             {posts.map(post => {
                 return (
                     <>
