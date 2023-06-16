@@ -16,13 +16,19 @@ function Navigation({ isLoaded }){
 				<NavLink exact to="/"><img src="https://i.imgur.com/8qodaIA.png" id="logo"></img></NavLink>
 			</div>
 			{isLoaded && (
-				<>
 				<div className="prof-btn">
-					{user &&
-					<i class="fa-solid fa-square-plus" style={{cursor:'pointer', fontSize:'25px'}}onClick={() => history.push("/create")}></i>}
-					<ProfileButton user={sessionUser} />
-				</div>
-				</>
+				{user && (
+				  <>
+					<i className="fa-solid fa-house" style={{ cursor: 'pointer', fontSize: '20px' }} onClick={() => history.push("/posts")}></i>
+					<i
+					  className="fa-solid fa-square-plus"
+					  style={{ cursor: 'pointer', fontSize: '25px' }}
+					  onClick={() => history.push("/create")}
+					></i>
+				  </>
+				)}
+				<ProfileButton user={sessionUser} />
+			  </div>
 			)}
 		</div>
 	);

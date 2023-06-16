@@ -31,15 +31,15 @@
   margin-right: 10px;
   padding: 4px 4px;
   border-radius: 12px;
-  background-color: #163564;
+  background-color: black;
   /* color: #0FB6DE; */
-  color: black;
+  color: #163564;
 }
 
 .user-menu {
   position: absolute;
   width: 100px;
-  transform: translateX(-79%);
+  transform: translateX(30%);
   background-color: white;
   border: 1px solid rgb(199, 192, 192);
   box-shadow: 1px 1px 2px grey;

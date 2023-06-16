@@ -9,6 +9,7 @@ import PostsLanding from "./components/PostsLandingPage";
 import NewPostPage from "./components/PostsLandingPage/NewPostPage"
 import PostDetailPage from "./components/PostDetailPage";
 import UpdatePost from "./components/PostDetailPage/UpdatePage";
+import FeedLanding from "./components/FeedPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/create">
             <NewPostPage />
+          </Route>
+          <Route exact path="/posts">
+            <FeedLanding />
           </Route>
           <Route path="/posts/:postId/update">
             <UpdatePost />
