@@ -2,6 +2,7 @@
 const GET_REVIEWS = 'reviews/GET_REVIEWS';
 const POST_REVIEW = 'reviews/POST_REVIEW';
 const EDIT_REVIEW = 'reviews/EDIT_REVIEW';
+const DELETE_REVIEW = 'reviews/DELETE_REVIEW'
 
 
 //action creators
@@ -24,6 +25,13 @@ const editReview = (review) => {
     return {
         type: EDIT_REVIEW,
         review
+    }
+}
+
+const removeReview = (reviewId) => {
+    return {
+        type: DELETE_REVIEW,
+        reviewId
     }
 }
 
@@ -81,6 +89,15 @@ export const updateReview = (reviewId, review) => async (dispatch) => {
     }
 }
 
+export const deleteReview = (reviewId) => async (dispatch) => {
+    const response = await fetch(`/api/reviews/${reviewId}/delete`, {
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        dispatch(removeReview(reviewId))
+    }
+}
+
 
 const initialState = {}
 //reducer
@@ -97,6 +114,11 @@ const reviewReducer = (state = initialState, action) => {
         case EDIT_REVIEW:
             newState = { ...state }
             newState[action.review.id] = action.review
+            return newState
+        case DELETE_REVIEW:
+            newState = { ...state }
+            console.log("delete reducer ==========================================", newState)
+            delete newState[action.reviewId]
             return newState
         default:
             return state;

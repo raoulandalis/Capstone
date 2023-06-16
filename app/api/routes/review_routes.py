@@ -58,3 +58,14 @@ def update_review(id):
 
     if form.errors:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+
+#delete reviews
+@reviews.route("/<int:id>/delete", methods=["DELETE"])
+@login_required
+def dedlete_review(id):
+    review = Review.query.get(id)
+    db.session.delete(review)
+    db.session.commit()
+    return {'message': 'Successfully deleted comment'}
