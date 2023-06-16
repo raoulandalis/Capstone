@@ -22,8 +22,10 @@ const NewPostForm = () => {
     useEffect(() => {
         const error = {}
         if (!name) error.name = "Name is required"
+        if (name.length < 5 || name.length > 50) error.name = "Name must be between 5 and 50 characters"
         if (!description) error.description = "Description is required"
         if (!genre) error.genre = "Genre is required"
+        if (genre.length < 5 || genre.length > 50) error.genre = "Name must be between 5 and 50 characters"
         if (!post_image) error.post_image = "Image is required"
         if (!rating) error.rating = "Rating is required"
         setErrors(error)
@@ -41,8 +43,18 @@ const NewPostForm = () => {
         formData.append("rating", rating)
 
         //error handling here
-        if (!Object.values(errors).length) {
-            const data = await dispatch(createPost(formData));
+        // if (!Object.values(errors).length) {
+        //     const data = await dispatch(createPost(formData));
+        // }
+
+        const data = await dispatch(createPost(formData));
+
+        if (data.errors) {
+            return setErrors(data.errors)
+        }
+
+        if (submitted && errors) {
+            setErrors('')
         }
 
         setName('')
@@ -62,22 +74,27 @@ const NewPostForm = () => {
             <form id="p-form" onSubmit={submitForm}>
                 <label>
                     Name:
+                    {errors.name && submitted && < p style={{ color: "red" }}>{errors.name}</p>}
                     <input type="text" name="name" onChange={(e) => setName(e.target.value)}/>
                 </label>
                 <label>
                     Genre:
+                    {errors.genre && submitted && < p style={{ color: "red" }}>{errors.genre}</p>}
                     <input type="text" name="genre" onChange={(e) => setGenre(e.target.value)}/>
                 </label>
                 <label>
                     Description:
+                    {errors.description && submitted && < p style={{ color: "red" }}>{errors.description}</p>}
                     <textarea type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
                 </label>
                 <label>
                     Image Link:
+                    {errors.post_image && submitted && < p style={{ color: "red" }}>{errors.post_image}</p>}
                     <input type="text" name="image" onChange={(e) => setPostImage(e.target.value)}/>
                 </label>
                 <label>
                     Rating:
+                    {errors.rating && submitted && < p style={{ color: "red" }}>{errors.rating}</p>}
                     <input type="number" name="rating" min="1" max="5" onChange={(e) => setRating(e.target.value)}/>
                 </label>
                 <button>POST</button>

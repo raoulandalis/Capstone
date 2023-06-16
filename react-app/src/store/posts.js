@@ -62,6 +62,7 @@ export const createPost = (post) => async (dispatch) => {
     } else {
         const data = await response.json()
         if (data.errors) {
+            console.log("store thunk===============================")
             return data
         }
     }
