@@ -22,9 +22,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/posts">
             <PostsLanding />
-          </Route>
+          </Route> */}
           <Route path="/login" >
             <LoginFormPage />
           </Route>
@@ -33,6 +33,9 @@ function App() {
           </Route>
           <Route path="/create">
             <NewPostPage />
+          </Route>
+          <Route exact path="/posts">
+            <PostsLanding />
           </Route>
           <Route path="/posts/:postId/update">
             <UpdatePost />
