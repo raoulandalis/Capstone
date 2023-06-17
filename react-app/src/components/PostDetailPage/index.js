@@ -18,9 +18,11 @@ const PostDetailPage = () => {
     const posts = useSelector(state => state.posts)
     const user = useSelector(state => state.session.user)
     const reviews = Object.values(useSelector(state => state.reviews))
-    const single_review = useSelector(state => state.reviews)
-
+    // const review = useSelector(state => state.reviews)
+    // const single_review = useSelector(state => state.reviews)
     const post = posts[postId]
+
+    // console.log("whats this", post)
 
     useEffect(() => {
         dispatch(getAllPosts())
@@ -31,11 +33,19 @@ const PostDetailPage = () => {
     if (!user) return null
 
     const postOwner = post.user.id === user.id
+    const userReviewsForPost = reviews.find(review => (review.post_id == postId && review.user.id === user.id))
 
 
     return (
         <>
         <h2 style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>Post Detail Page...</h2>
+        {!postOwner && !userReviewsForPost && (
+        <div>
+            <OpenModalButton
+                    buttonText={'Post Review'}
+                    modalComponent={<CreateReviewModal postId={post.id}/>}
+                />
+        </div>)}
         {postOwner &&
             <>
             <button onClick={() => history.push(`/posts/${postId}/update`)}>Update Post</button>
@@ -73,16 +83,13 @@ const PostDetailPage = () => {
                             buttonText={'Delete'}
                             modalComponent={<DeleteReviewModal reviewId={review.id}/>}
                         />}
+
                         </>
                     )}
                 })}
                 {/* add post review display logic here */}
-                {/* if user.id === post.user.id NO btn*/}
                 {/* if user.id === review.user.id NO btn*/}
-                <OpenModalButton
-                    buttonText={'Post Review'}
-                    modalComponent={<CreateReviewModal postId={post.id}/>}
-                />
+                {/* {user.id === post.user.id || user.id == review.user.id && ( */}
             </div>
         </div>
         </>

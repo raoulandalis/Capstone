@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField,TextAreaField, IntegerField,DateField
-from wtforms.validators import DataRequired, Length, URL, Email, ValidationError
+from wtforms import StringField, SubmitField, TextAreaField, IntegerField,DateField
+from wtforms.validators import DataRequired, ValidationError
 
 def text_length(form, field):
     # Checking if post length is correct
