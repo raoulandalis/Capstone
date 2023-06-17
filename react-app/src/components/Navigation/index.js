@@ -19,12 +19,12 @@ function Navigation({ isLoaded }){
 				<div className="prof-btn">
 				{user && (
 				  <>
-					<i className="fa-solid fa-house" style={{ cursor: 'pointer', fontSize: '20px' }} onClick={() => history.push("/posts")}></i>
 					<i
 					  className="fa-solid fa-square-plus"
 					  style={{ cursor: 'pointer', fontSize: '25px' }}
 					  onClick={() => history.push("/create")}
 					></i>
+					<i className="fa-solid fa-house" style={{ cursor: 'pointer', fontSize: '20px' }} onClick={() => history.push("/posts")}></i>
 				  </>
 				)}
 				<ProfileButton user={sessionUser} />
