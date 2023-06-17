@@ -35,6 +35,7 @@ const PostsLanding = () => {
             } */}
             </div>
         </div>
+        <h2 id="pl-message">Trending</h2>
         <div className='post-landing-house'>
             {posts.slice(0, 4).map(post => {
                 return (

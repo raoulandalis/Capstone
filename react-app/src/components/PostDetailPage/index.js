@@ -18,7 +18,7 @@ const PostDetailPage = () => {
     const posts = useSelector(state => state.posts)
     const user = useSelector(state => state.session.user)
     const reviews = Object.values(useSelector(state => state.reviews))
-    const review = useSelector(state => state.reviews)
+    // const review = useSelector(state => state.reviews)
     // const single_review = useSelector(state => state.reviews)
     const post = posts[postId]
 
