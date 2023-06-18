@@ -8,11 +8,14 @@ const UpdateReviewModal = ({reviewId}) => {
 
     const dispatch = useDispatch()
     const reviews = useSelector(state => state.reviews)
+    const current_review = reviews[reviewId]
     const { closeModal } = useModal()
 
+    console.log("==============================", reviews[reviewId].rating)
+
     //state slices
-    const [content, setContent] = useState('')
-    const [rating, setRating] = useState('')
+    const [content, setContent] = useState(current_review?.content || '')
+    const [rating, setRating] = useState(current_review?.rating)
     const [errors, setErrors] = useState('')
     const [submitted, setSubmitted] = useState(false)
 
@@ -33,19 +36,9 @@ const UpdateReviewModal = ({reviewId}) => {
         formData.append("content", content)
         formData.append("rating", rating)
 
-        // if (!Object.values(errors).length) {
-        //     const data = await dispatch(updateReview(reviewId, formData))
-
-        //     setContent('')
-        //     setRating('')
-        //     setSubmitted(false)
-        //     closeModal()
-        // }
-
         const data = await dispatch(updateReview(reviewId, formData))
 
         if (data.errors) {
-            console.log("===================================", data.errors)
             return setErrors(data.errors)
         }
 
@@ -79,7 +72,7 @@ const UpdateReviewModal = ({reviewId}) => {
                 <label>
                     Rating:
                     {errors.rating && submitted && < p style={{ color: "red" }}>{errors.rating}</p>}
-                    <input type="number" name="rating" min="1" max="5" onChange={(e) => setRating(e.target.value)}/>
+                    <input type="number" name="rating" value={rating} min="1" max="5" onChange={(e) => setRating(e.target.value)}/>
                 </label>
                 <button>POST</button>
             </form>
