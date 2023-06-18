@@ -10,6 +10,7 @@ import NewPostPage from "./components/PostsLandingPage/NewPostPage"
 import PostDetailPage from "./components/PostDetailPage";
 import UpdatePost from "./components/PostDetailPage/UpdatePage";
 import FeedLanding from "./components/FeedPage";
+import ProfilePageLanding from "./components/ProfilePage"
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/create">
             <NewPostPage />
+          </Route>
+          <Route path="/profile">
+            <ProfilePageLanding />
           </Route>
           <Route exact path="/posts">
             <FeedLanding />
