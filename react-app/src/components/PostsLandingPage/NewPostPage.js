@@ -27,7 +27,7 @@ const NewPostForm = () => {
         if (!genre) error.genre = "Genre is required"
         if (genre.length < 5 || genre.length > 50) error.genre = "Name must be between 5 and 50 characters"
         if (!post_image) error.post_image = "Image is required"
-        if (!rating) error.rating = "Rating is required"
+        if (!rating) error.rating = "Rating 2 is required"
         setErrors(error)
     }, [name, description, genre, post_image, rating])
 

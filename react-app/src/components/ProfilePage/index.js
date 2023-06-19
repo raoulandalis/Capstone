@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '../../store/posts';
 import { NavLink } from "react-router-dom";
-
-//IMPORTANT: CLASSNAME FOR THIS PAGE IS CONNECTED TO FEED
+import "./ProfilePage.css"
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const ProfilePage = () => {
 
@@ -18,10 +19,19 @@ const ProfilePage = () => {
     }, [dispatch])
 
 
+    const responsive = {
+        desktop: {
+            breakpoint: {max: 3000, min: 1024},
+            items: 3
+        }
+    }
+
+
     return (
         <>
         <h2>Profile Page Landing</h2>
-        <div className='post-landing-house'>
+        <div className='profile-landing-house'>
+        <Carousel infiniteLoop={true} responsive={responsive}>
             {userPosts.map(post => {
                 return (
                     <>
@@ -37,6 +47,7 @@ const ProfilePage = () => {
                     </>
                 )
             })}
+            </Carousel>
         </div>
         </>
     )
