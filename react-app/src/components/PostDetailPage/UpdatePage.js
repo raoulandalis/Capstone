@@ -93,7 +93,7 @@ const UpdatePost = () => {
                 </label>
                 <label>
                     Description:
-                    <textarea type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
+                    <textarea style={{resize: 'none'}} type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
                 </label>
                 <label>
                     Image Link:

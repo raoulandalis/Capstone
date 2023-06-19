@@ -6,7 +6,7 @@ def text_length(form, field):
     # Checking if post length is correct
     text = field.data
     if len(text) > 2000 or len(text) < 5:
-        raise ValidationError('Post must be between 5 and 5,000 characters')
+        raise ValidationError('Post must be between 5 and 2,000 characters')
 
 def general_text(form, field):
     text = field.data

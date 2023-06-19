@@ -9,6 +9,7 @@ import DeletePostModal from "./DeletePostModal";
 import CreateReviewModal from "./CreateReviewModal"
 import UpdateReviewModal from "./UpdateReview";
 import DeleteReviewModal from "./DeleteReviewModal";
+import "./PostDetailPage.css"
 
 const PostDetailPage = () => {
 
@@ -65,7 +66,7 @@ const PostDetailPage = () => {
             <div>
                 <img src={post.post_image} style={{height: '500px'}}></img>
             </div>
-            <div>
+            <div className="details">
                 <h1>{post.name}</h1>
                 <h3>{post.genre}</h3>
                 <h3>{post.description}</h3>
