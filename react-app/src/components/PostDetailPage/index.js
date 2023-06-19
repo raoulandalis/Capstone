@@ -68,7 +68,7 @@ const PostDetailPage = () => {
             <div>
                 <h1>{post.name}</h1>
                 <h3>{post.genre}</h3>
-                <h2>{post.description}</h2>
+                <h3>{post.description}</h3>
                 <p>{post.user.first_name}'s Rating {post.rating} Stars</p>
                 ------this is reviews------
                 {reviews.map(review => {
