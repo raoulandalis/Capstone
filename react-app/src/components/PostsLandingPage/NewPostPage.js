@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom'
 import { createPost } from '../../store/posts';
+import StarRatings from 'react-star-ratings';
 import './PostLandingPage.css'
 
 const NewPostForm = () => {
@@ -15,7 +16,7 @@ const NewPostForm = () => {
     const [description, setDescription] = useState('')
     const [genre, setGenre] = useState('')
     const [post_image, setPostImage] = useState('')
-    const [rating, setRating] = useState('')
+    const [rating, setRating] = useState(0)
     const [errors, setErrors] = useState('')
     const [submitted, setSubmitted] = useState(false)
 
@@ -61,10 +62,10 @@ const NewPostForm = () => {
         setDescription('')
         setGenre('')
         setPostImage('')
-        setRating('')
+        setRating(0)
         setSubmitted(false)
 
-        history.push("/posts")
+        history.push(`/posts/${data.id}`)
     }
 
     if (!posts) return null
@@ -94,11 +95,23 @@ const NewPostForm = () => {
                     {errors.post_image && submitted && < p style={{ color: "red" }}>{errors.post_image}</p>}
                     <input type="text" name="image" onChange={(e) => setPostImage(e.target.value)}/>
                 </label>
-                <label>
+                {/* <label>
                     Rating:
                     {errors.rating && submitted && < p style={{ color: "red" }}>{errors.rating}</p>}
                     <input type="number" name="rating" min="1" max="5" onChange={(e) => setRating(e.target.value)}/>
+                </label> */}
+                <label>
+                Rating:
+                {errors.rating && submitted && <p style={{ color: 'red' }}>{errors.rating}</p>}
+                    <StarRatings
+                    rating={rating}
+                    starRatedColor="#163564"
+                    changeRating={value => setRating(value)}
+                    numberOfStars={5}
+                    name="rating"
+                />
                 </label>
+
                 <button>POST</button>
             </form>
             </div>
