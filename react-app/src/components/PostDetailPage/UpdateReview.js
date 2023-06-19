@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from "react-router-dom"
 import { updateReview } from '../../store/reviews';
 import { useModal } from "../../context/Modal"
+import StarRatings from 'react-star-ratings';
 
 const UpdateReviewModal = ({reviewId}) => {
 
@@ -71,9 +72,15 @@ const UpdateReviewModal = ({reviewId}) => {
                     />
                 </label>
                 <label>
-                    Rating:
-                    {errors.rating && submitted && < p style={{ color: "red" }}>{errors.rating}</p>}
-                    <input type="number" name="rating" value={rating} min="1" max="5" onChange={(e) => setRating(e.target.value)}/>
+                Rating:
+                {errors.rating && submitted && <p style={{ color: 'red' }}>{errors.rating}</p>}
+                    <StarRatings
+                    rating={+rating}
+                    starRatedColor="#163564"
+                    changeRating={value => setRating(value)}
+                    numberOfStars={5}
+                    name="rating"
+                />
                 </label>
                 <button>POST</button>
             </form>

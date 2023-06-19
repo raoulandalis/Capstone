@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from "react-router-dom"
 import { updatePost } from '../../store/posts';
+import StarRatings from 'react-star-ratings';
 import '../PostsLandingPage/PostLandingPage.css'
 
 const UpdatePost = () => {
@@ -59,7 +60,6 @@ const UpdatePost = () => {
 
 
         if (data.errors) {
-            console.log("===================================", data.errors)
             return setErrors(data.errors)
         }
 
@@ -99,9 +99,20 @@ const UpdatePost = () => {
                     Image Link:
                     <input type="text" name="image" value={post_image} onChange={(e) => setPostImage(e.target.value)}/>
                 </label>
-                <label>
+                {/* <label>
                     Rating:
                     <input type="number" name="rating" min="1" max="5"  value={rating}onChange={(e) => setRating(e.target.value)}/>
+                </label> */}
+                <label>
+                Rating:
+                {errors.rating && submitted && <p style={{ color: 'red' }}>{errors.rating}</p>}
+                    <StarRatings
+                    rating={rating}
+                    starRatedColor="#163564"
+                    changeRating={value => setRating(value)}
+                    numberOfStars={5}
+                    name="rating"
+                />
                 </label>
                 <button>Update</button>
             </form>

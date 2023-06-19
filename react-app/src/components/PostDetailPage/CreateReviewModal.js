@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom'
 import { postReview } from "../../store/reviews";
 import { useModal } from "../../context/Modal"
+import StarRatings from 'react-star-ratings';
 
 const NewReviewModal = ({postId}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { closeModal } = useModal()
     const reviews = useSelector(state => state.reviews)
+
+    console.log("am i in here?============================================")
 
     //state slices
     const [content, setContent] = useState('')
@@ -78,9 +81,15 @@ const NewReviewModal = ({postId}) => {
                     />
                 </label>
                 <label>
-                    Rating:
-                    {errors.rating && submitted && < p style={{ color: "red" }}>{errors.rating}</p>}
-                    <input type="number" name="rating" min="1" max="5" onChange={(e) => setRating(e.target.value)}/>
+                Rating:
+                {errors.rating && submitted && <p style={{ color: 'red' }}>{errors.rating}</p>}
+                    <StarRatings
+                    rating={+rating}
+                    starRatedColor="#163564"
+                    changeRating={value => setRating(value)}
+                    numberOfStars={5}
+                    name="rating"
+                />
                 </label>
                 <button>POST</button>
             </form>
