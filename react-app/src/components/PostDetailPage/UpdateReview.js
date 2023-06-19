@@ -62,6 +62,7 @@ const UpdateReviewModal = ({reviewId}) => {
                 <label>
                     {errors.content && submitted && < p style={{ color: "red" }}>{errors.content}</p>}
                     <textarea
+                        style={{resize: 'none'}}
                         value={content}
                         placeholder="Write a review..."
                         required

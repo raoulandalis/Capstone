@@ -52,7 +52,7 @@ const PostsLanding = () => {
             </div>
           </NavLink>
         ) : (
-          <div key={post.id} className="post-tiles">
+          <div key={post.id} className="post-tiles" style={{cursor:'not-allowed'}}>
             <img src={post.post_image} style={{ height: '400px', width: '100%', objectFit: 'cover' }}></img>
             <h2>{post.name}</h2>
             <h3>{post.user.first_name}'s Rating: {post.rating} Stars</h3>

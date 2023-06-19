@@ -9,6 +9,7 @@ button {
     cursor: pointer
 }
 
+/*might have to comment out if carousel doesn't work*/
 .post-landing-house {
     display: flex;
     flex-wrap: wrap;

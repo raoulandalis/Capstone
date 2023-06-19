@@ -87,7 +87,7 @@ const NewPostForm = () => {
                 <label>
                     Description:
                     {errors.description && submitted && < p style={{ color: "red" }}>{errors.description}</p>}
-                    <textarea type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
+                    <textarea style={{resize: 'none'}} type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
                 </label>
                 <label>
                     Image Link:

@@ -44,7 +44,7 @@ def seed_posts():
         name='The Menu', description="The film is centered around a group of elite guests who arrive on a private island for a dining experience at celebrity chef Julian Slowik's exclusive restaurant, Hawthorne.", genre='Horror/Comedy', post_image='https://m.media-amazon.com/images/M/MV5BMzdjNjI5MmYtODhiNS00NTcyLWEzZmUtYzVmODM5YzExNDE3XkEyXkFqcGdeQXVyMTAyMjQ3NzQ1._V1_FMjpg_UX1000_.jpg', rating=4, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     post13 = Post(
-        name='The Menu', description="The story of two young men, Ennis del Mar and Jack Twist, a Wyoming ranch hand and a rodeo cowboy, who meet in the summer of 1963 sheepherding in the harsh, high grasslands of contemporary Wyoming and form an unorthodox yet life-long bond--by turns ecstatic, bitter and conflicted", genre='Romance', post_image='https://m.media-amazon.com/images/M/MV5BMTY5NTAzNTc1NF5BMl5BanBnXkFtZTYwNDY4MDc3._V1_.jpg', rating=4, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
+        name='Brokeback Mountain', description="The story of two young men, Ennis del Mar and Jack Twist, a Wyoming ranch hand and a rodeo cowboy, who meet in the summer of 1963 sheepherding in the harsh, high grasslands of contemporary Wyoming and form an unorthodox yet life-long bond--by turns ecstatic, bitter and conflicted", genre='Romance', post_image='https://m.media-amazon.com/images/M/MV5BMTY5NTAzNTc1NF5BMl5BanBnXkFtZTYwNDY4MDc3._V1_.jpg', rating=4, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     post14 = Post(
         name='Creed III', description="Still dominating the boxing world, Adonis Creed is thriving in his career and family life. When Damian, a childhood friend and former boxing prodigy resurfaces after serving time in prison, he's eager to prove that he deserves his shot in the ring.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BYWY1ZDY4MmQtYjhiYS00N2QwLTk1NzgtOWI2YzUwZThjNDYwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg', rating=3, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
@@ -77,21 +77,21 @@ def seed_posts():
         name='PAW Patrol: The Movie', description="When their biggest rival, Humdinger, starts wreaking havoc as the mayor of Adventure City, Ryder and everyone's favorite heroic pups kick into high gear to face the challenge.", genre='Adventure', post_image='https://m.media-amazon.com/images/M/MV5BOTFkN2JhOGEtODQzOC00NzA2LThkNzktYjhkMWIyNjM5YjNlXkEyXkFqcGdeQXVyODUwNjEzMzg@._V1_FMjpg_UX1000_.jpg', rating=5, user_id=7, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     post23 = Post(
-        name='John Wick: Chapter 4', description="With the price on his head ever increasing, legendary hit man John Wick takes his fight against the High Table global as he seeks out the most powerful players in the underworld, from New York to Paris to Japan to Berlin.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_FMjpg_UX1000_.jpg', rating=3, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
-    )
-    post23 = Post(
-        name='Kung Fu Hustle', description="When the hapless Sing and his dim-witted pal Bone try to scam the residents of Pig Sty Alley into thinking they're members of the dreaded Axe Gang, the real gangsters descend on this Shanghai slum to restore their fearsome reputation.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BMjZiOTNlMzYtZWYwZS00YWJjLTk5NDgtODkwNjRhMDI0MjhjXkEyXkFqcGdeQXVyMjgyNjk3MzE@._V1_FMjpg_UX1000_.jpg', rating=4, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
+        name='John Wick: Chapter 4', description="With the price on his head ever increasing, legendary hit man John Wick takes his fight against the High Table global as he seeks out the most powerful players in the underworld, from New York to Paris to Japan to Berlin.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_FMjpg_UX1000_.jpg', rating=3, user_id=9, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     post24 = Post(
-        name='Rush Hour', description="When a Chinese diplomat's daughter is kidnapped in Los Angeles, he calls in Hong Kong Detective Inspector Lee to assist the FBI with the case. But the FBI doesn't want anything to do with Lee, and they dump him off on the LAPD, who assign wisecracking Detective James Carter to watch over him.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BYWM2NDZmYmYtNzlmZC00M2MyLWJmOGUtMjhiYmQ2OGU1YTE1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg', rating=5, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
+        name='Kung Fu Hustle', description="When the hapless Sing and his dim-witted pal Bone try to scam the residents of Pig Sty Alley into thinking they're members of the dreaded Axe Gang, the real gangsters descend on this Shanghai slum to restore their fearsome reputation.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BMjZiOTNlMzYtZWYwZS00YWJjLTk5NDgtODkwNjRhMDI0MjhjXkEyXkFqcGdeQXVyMjgyNjk3MzE@._V1_FMjpg_UX1000_.jpg', rating=4, user_id=9, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     post25 = Post(
+        name='Rush Hour', description="When a Chinese diplomat's daughter is kidnapped in Los Angeles, he calls in Hong Kong Detective Inspector Lee to assist the FBI with the case. But the FBI doesn't want anything to do with Lee, and they dump him off on the LAPD, who assign wisecracking Detective James Carter to watch over him.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BYWM2NDZmYmYtNzlmZC00M2MyLWJmOGUtMjhiYmQ2OGU1YTE1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg', rating=5, user_id=9, created_at=fake.date_between(start_date='-5y', end_date='today')
+    )
+    post26 = Post(
         name='I Want to Eat Your Pancreas', description='An aloof boy comes across a book in a hospital waiting room. He soon discovers that it is a diary kept by his very popular classmate who reveals to him that she is secretly suffering from a fatal pancreatic illness.', genre='Romance', post_image='https://m.media-amazon.com/images/M/MV5BNDM4MWE3NGQtODlkYS00NWU5LTg3ZjMtMTEyNjljOWI4NWIxXkEyXkFqcGdeQXVyNzkzODk2Mzc@._V1_.jpg', rating=5, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
 
 
 
-    posts = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post16, post17, post18, post19, post20, post21, post22, post23, post24, post25]
+    posts = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post16, post17, post18, post19, post20, post21, post22, post23, post24, post25, post26]
 
     [db.session.add(post) for post in posts]
     db.session.commit()
