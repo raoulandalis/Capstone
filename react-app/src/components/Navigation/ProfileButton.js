@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
@@ -7,6 +8,7 @@ import SignupFormModal from "../SignupFormModal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
 
@@ -45,7 +47,8 @@ function ProfileButton({ user }) {
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <div className="user-menu">
-            <span>{user.username}</span>
+            <button>{user.username}</button>
+            <button onClick={() => history.push("/profile")}>My Profile</button>
             <button onClick={handleLogout}>Log Out</button>
           </div>
         ) : (

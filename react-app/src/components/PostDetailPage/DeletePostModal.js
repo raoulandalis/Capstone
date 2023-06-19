@@ -14,7 +14,7 @@ const DeletePostModal = ({postId}) => {
 
         await dispatch(deletePost(postId));
         closeModal()
-        history.push("/")
+        history.push("/posts")
     }
 
 
