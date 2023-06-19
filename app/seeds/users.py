@@ -6,14 +6,32 @@ from sqlalchemy.sql import text
 def seed_users():
     demo = User(
         username='demolition', first_name="Demo", last_name="Lition", email='demo@aa.io', password='password')
-    marnie = User(
-        username='marniesmith', first_name="Marnie", last_name="Smith", email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbiejones', first_name="Bobbie", last_name="Jones", email='bobbie@aa.io', password='password')
+    tien = User(
+        username='tienhoang', first_name="Tien", last_name="Hoang", email='tien-hoang@aa.io', password='password')
+    nessa = User(
+        username='nessagonzalez', first_name="Nessa", last_name="Gonzalez", email='nessa-gonzalez@aa.io', password='password')
+    miguel = User(
+        username='miguelreyes', first_name="Miguel", last_name="Reyes", email='miguel-reyes@aa.io', password='password')
+    jenna = User(
+        username='jennagodfrey', first_name="Jenna", last_name="Godfrey", email='jenna-godfrey@aa.io', password='password')
+    matias = User(
+        username='matiasperez', first_name="Matias", last_name="Perez", email='matias-perez@aa.io', password='password')
+    kc = User(
+        username='kcosmani', first_name="KC", last_name="Osmani", email='kc-osmani@aa.io', password='password')
+    david = User(
+        username='davidkim', first_name="David", last_name="Kim", email='david-kim@aa.io', password='password')
+    albert = User(
+        username='albertkim', first_name="Albert", last_name="Kim", email='albert-kim@aa.io', password='password')
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    # db.session.add(demo)
+    # db.session.add(marnie)
+    # db.session.add(bobbie)
+    # db.session.commit()
+
+    users = [demo, tien, nessa, miguel, jenna, matias, kc, david, albert]
+
+    [db.session.add(user) for user in users]
+
     db.session.commit()
 
 

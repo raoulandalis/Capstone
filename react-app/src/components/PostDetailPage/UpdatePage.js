@@ -13,12 +13,14 @@ const UpdatePost = () => {
     const posts = useSelector(state => state.posts);
     // const user = useSelector(state.session.user)
 
+    const current_post = posts[postId]
+
     //state slices
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [genre, setGenre] = useState('')
-    const [post_image, setPostImage] = useState('')
-    const [rating, setRating] = useState('')
+    const [name, setName] = useState(current_post?.name || '')
+    const [description, setDescription] = useState(current_post?.description || '')
+    const [genre, setGenre] = useState(current_post?.genre || '')
+    const [post_image, setPostImage] = useState(current_post?.post_image || '')
+    const [rating, setRating] = useState(current_post?.rating || '')
     const [errors, setErrors] = useState('')
     const [submitted, setSubmitted] = useState(false)
 
@@ -83,23 +85,23 @@ const UpdatePost = () => {
             <form id="p-form" onSubmit={submitForm}>
                 <label>
                     Name:
-                    <input type="text" name="name" onChange={(e) => setName(e.target.value)}/>
+                    <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
                 </label>
                 <label>
                     Genre:
-                    <input type="text" name="genre" onChange={(e) => setGenre(e.target.value)}/>
+                    <input type="text" name="genre" value={genre} onChange={(e) => setGenre(e.target.value)}/>
                 </label>
                 <label>
                     Description:
-                    <textarea type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
+                    <textarea type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
                 </label>
                 <label>
                     Image Link:
-                    <input type="text" name="image" onChange={(e) => setPostImage(e.target.value)}/>
+                    <input type="text" name="image" value={post_image} onChange={(e) => setPostImage(e.target.value)}/>
                 </label>
                 <label>
                     Rating:
-                    <input type="number" name="rating" min="1" max="5" onChange={(e) => setRating(e.target.value)}/>
+                    <input type="number" name="rating" min="1" max="5"  value={rating}onChange={(e) => setRating(e.target.value)}/>
                 </label>
                 <button>Update</button>
             </form>

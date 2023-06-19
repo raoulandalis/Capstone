@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '../../store/posts';
 import { NavLink, useHistory } from "react-router-dom";
 import OpenModalButton from '../OpenModalButton';
+import LoginFormModal from '../LoginFormModal';
 import NewPostModal from './NewPostPage'
 import './PostLandingPage.css'
 
@@ -37,22 +38,33 @@ const PostsLanding = () => {
         </div>
         <h2 id="pl-message">Trending</h2>
         <div className='post-landing-house'>
-            {posts.slice(0, 4).map(post => {
-                return (
-                    <>
-                    <NavLink to={`/posts/${post.id}`} style={{textDecoration: 'none', color: 'black'}}>
-                        <div key={post.id} className="post-tiles">
-                            <img src={post.post_image} style={{height: '300px', width: '100%', objectFit:'cover'}}></img>
-                            <h2>{post.name} - {post.rating} Stars</h2>
-                            <h3>{post.genre}</h3>
-                            <p>{post.description}</p>
-                            <p>Posted by {post.user.username}</p>
-                        </div>
-                    </NavLink>
-                    </>
-                )
-            })}
-        </div>
+  {posts.slice(0, 3).map(post => {
+    return (
+      <>
+        {user ? (
+          <NavLink to={`/posts/${post.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+            <div key={post.id} className="post-tiles">
+              <img src={post.post_image} style={{ height: '400px', width: '100%', objectFit: 'cover' }}></img>
+              <h2>{post.name}</h2>
+              <h3>{post.user.first_name}'s Rating: {post.rating} Stars</h3>
+              <h3>{post.genre}</h3>
+              <p>Posted by {post.user.username}</p>
+            </div>
+          </NavLink>
+        ) : (
+          <div key={post.id} className="post-tiles">
+            <img src={post.post_image} style={{ height: '400px', width: '100%', objectFit: 'cover' }}></img>
+            <h2>{post.name}</h2>
+            <h3>{post.user.first_name}'s Rating: {post.rating} Stars</h3>
+            <h3>{post.genre}</h3>
+            <p>Posted by {post.user.username}</p>
+          </div>
+        )}
+      </>
+    )
+  })}
+</div>
+
         </>
     )
 }

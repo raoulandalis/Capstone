@@ -63,6 +63,8 @@ const NewPostForm = () => {
         setPostImage('')
         setRating('')
         setSubmitted(false)
+
+        history.push("/posts")
     }
 
     if (!posts) return null

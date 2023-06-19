@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts} from '../../store/posts';
 import { getAllReviews } from "../../store/reviews";
 import OpenModalButton from '../OpenModalButton'
+import UpdatePost from "./UpdatePage";
 import DeletePostModal from "./DeletePostModal";
 import CreateReviewModal from "./CreateReviewModal"
 import UpdateReviewModal from "./UpdateReview";
@@ -31,6 +32,11 @@ const PostDetailPage = () => {
 
     if (!post) return null
     if (!user) return null
+
+    // const handleUpdatePost = () => {
+    //     history.push(`/posts/${postId}/update`);
+    //     postId={post.id}
+    //   };
 
     const postOwner = post.user.id === user.id
     const userReviewsForPost = reviews.find(review => (review.post_id == postId && review.user.id === user.id))
@@ -62,7 +68,7 @@ const PostDetailPage = () => {
             <div>
                 <h1>{post.name}</h1>
                 <h3>{post.genre}</h3>
-                <h2>{post.description}</h2>
+                <h3>{post.description}</h3>
                 <p>{post.user.first_name}'s Rating {post.rating} Stars</p>
                 ------this is reviews------
                 {reviews.map(review => {

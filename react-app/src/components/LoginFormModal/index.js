@@ -24,10 +24,16 @@ function LoginFormModal() {
     }
   };
 
+  const demoUser = (e) => {
+    e.preventDefault()
+    closeModal()
+    return dispatch(login("demo@aa.io", "password"))
+  }
+
   return (
     <>
       <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="login-form">
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -52,6 +58,7 @@ function LoginFormModal() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button onClick={demoUser} className="normal-demo-button">Demo User</button>
       </form>
     </>
   );

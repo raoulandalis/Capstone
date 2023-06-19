@@ -20,9 +20,9 @@ button {
     justify-content: space-around;
 }
 
-.post-tiles {
+/* .post-tiles {
     border: 1px solid blue;
-}
+} */
 
 .post-form-house > #p-form {
     display: flex;

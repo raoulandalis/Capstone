@@ -1,0 +1,14 @@
+.feed-landing-house {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 50px;
+    gap: 5px;
+    justify-content: space-around;
+}
+
+.post-tiles {
+    width: 300px;
+}
