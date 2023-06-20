@@ -27,6 +27,19 @@ const ProfilePage = () => {
     }
 
 
+    const starRating = (rating) => {
+        const stars = []
+        for (let i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars.push(<i class="fa-sharp fa-solid fa-star" style={{color: '#b7b224'}}></i>)
+            } else {
+                stars.push(<i class="fa-regular fa-star" style={{color: '#b7b224'}}></i>)
+            }
+        }
+        return stars
+    }
+
+
     return (
         <>
         <h2>Profile Page Landing</h2>
@@ -39,7 +52,7 @@ const ProfilePage = () => {
                         <div key={post.id} className="post-tiles">
                             <img src={post.post_image} style={{height: '400px', width: '100%', objectFit:'cover'}}></img>
                             <h2>{post.name}</h2>
-                            <h3>My Rating: {post.rating} Stars</h3>
+                            <h3>My Rating: {starRating(post.rating)}</h3>
                             <h3>{post.genre}</h3>
                             <p>Posted by {post.user.username}</p>
                         </div>
