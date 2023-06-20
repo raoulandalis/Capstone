@@ -34,10 +34,17 @@ const PostDetailPage = () => {
     if (!post) return null
     if (!user) return null
 
-    // const handleUpdatePost = () => {
-    //     history.push(`/posts/${postId}/update`);
-    //     postId={post.id}
-    //   };
+    const starRating = (rating) => {
+        const stars = []
+        for (let i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars.push(<i class="fa-sharp fa-solid fa-star" style={{color: '#b7b224'}}></i>)
+            } else {
+                stars.push(<i class="fa-regular fa-star" style={{color: '#b7b224'}}></i>)
+            }
+        }
+        return stars
+    }
 
     const postOwner = post.user.id === user.id
     const userReviewsForPost = reviews.find(review => (review.post_id == postId && review.user.id === user.id))
@@ -70,14 +77,14 @@ const PostDetailPage = () => {
                 <h1>{post.name}</h1>
                 <h3>{post.genre}</h3>
                 <h3>{post.description}</h3>
-                <p>{post.user.first_name}'s Rating {post.rating} Stars</p>
+                {/* <p>{post.user.first_name}'s Rating {starRating(post.rating)}</p> */}
                 ------this is reviews------
                 {reviews.map(review => {
                     if (review.post_id === post.id) {
                     return (
                         <>
                         <div>
-                            <div>{review.rating} Stars</div>
+                            <div>{starRating(review.rating)}</div>
                             <div>{review.content}</div>
                             <div>{review.user.username}</div>
                         </div>
