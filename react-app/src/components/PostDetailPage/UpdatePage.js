@@ -73,6 +73,8 @@ const UpdatePost = () => {
         setPostImage('')
         setRating('')
         setSubmitted(false)
+
+        history.push(`/posts/${data.id}`)
     }
 
     if (!posts) return null
@@ -107,7 +109,7 @@ const UpdatePost = () => {
                 Rating:
                 {errors.rating && submitted && <p style={{ color: 'red' }}>{errors.rating}</p>}
                     <StarRatings
-                    rating={rating}
+                    rating={+rating}
                     starRatedColor="#163564"
                     changeRating={value => setRating(value)}
                     numberOfStars={5}

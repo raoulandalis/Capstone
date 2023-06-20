@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '../../store/posts';
 import { NavLink } from "react-router-dom";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import "./FeedPage.css"
 
 
@@ -13,6 +15,14 @@ const FeedLanding = () => {
     useEffect(() => {
         dispatch(getAllPosts())
     }, [dispatch])
+
+
+    const responsive = {
+        desktop: {
+            breakpoint: {max: 3000, min: 1024},
+            items: 3
+        }
+    }
 
 
     const starRating = (rating) => {
@@ -30,9 +40,8 @@ const FeedLanding = () => {
 
     return (
         <>
-        <h2>Feed Landing</h2>
         <div className='feed-landing-house'>
-            {posts.map(post => {
+            {posts.reverse().map(post => {
                 return (
                     <>
                     <NavLink to={`/posts/${post.id}`} style={{textDecoration: 'none', color: 'black'}}>

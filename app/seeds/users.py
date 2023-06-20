@@ -22,13 +22,15 @@ def seed_users():
         username='davidkim', first_name="David", last_name="Kim", email='david-kim@aa.io', password='password')
     albert = User(
         username='albertkim', first_name="Albert", last_name="Kim", email='albert-kim@aa.io', password='password')
+    adanna = User(
+        username='adannaliu', first_name="Adanna", last_name="Liu", email='adanna-liu@aa.io', password='password')
 
     # db.session.add(demo)
     # db.session.add(marnie)
     # db.session.add(bobbie)
     # db.session.commit()
 
-    users = [demo, tien, nessa, miguel, jenna, matias, kc, david, albert]
+    users = [demo, tien, nessa, miguel, jenna, matias, kc, david, albert, adanna]
 
     [db.session.add(user) for user in users]
 

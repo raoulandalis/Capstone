@@ -52,7 +52,6 @@ const PostDetailPage = () => {
 
     return (
         <>
-        <h2 style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>Post Detail Page...</h2>
         {!postOwner && !userReviewsForPost && (
         <div>
             <OpenModalButton
@@ -69,16 +68,18 @@ const PostDetailPage = () => {
             />
             </>
         }
-        <div className="post-detail-house" style={{display:'flex', justifyContent:'center', gap: '50px', marginTop: '50px'}}>
+        <div className="post-detail-house">
             <div>
                 <img src={post.post_image} style={{height: '500px'}}></img>
             </div>
             <div className="details">
-                <h1>{post.name}</h1>
-                <h3>{post.genre}</h3>
-                <h3>{post.description}</h3>
-                {/* <p>{post.user.first_name}'s Rating {starRating(post.rating)}</p> */}
-                ------this is reviews------
+                <div className="top-name">
+                    <h1>{post.name}</h1>
+                    <h3>{post.genre}</h3>
+                    <p>{post.description}</p>
+                </div>
+                <h3 id="detail-reviews-word">Reviews</h3>
+                <div className="detail-reviews">
                 {reviews.map(review => {
                     if (review.post_id === post.id) {
                     return (
@@ -88,22 +89,23 @@ const PostDetailPage = () => {
                             <div>{review.content}</div>
                             <div>{review.user.username}</div>
                         </div>
-                        {review.user.id === user.id &&
-                        <OpenModalButton
-                            buttonText={'Update'}
-                            modalComponent={<UpdateReviewModal reviewId={review.id}/>}
-                        />}
-                        {<OpenModalButton
-                            buttonText={'Delete'}
-                            modalComponent={<DeleteReviewModal reviewId={review.id}/>}
-                        />}
+                        {review.user.id === user.id && (
+                            <>
+                            <OpenModalButton
+                                buttonText={'Update'}
+                                modalComponent={<UpdateReviewModal reviewId={review.id} />}
+                            />
+                            <OpenModalButton
+                                buttonText={'Delete'}
+                                modalComponent={<DeleteReviewModal reviewId={review.id} />}
+                            />
+                            </>
+                            )}
 
                         </>
                     )}
                 })}
-                {/* add post review display logic here */}
-                {/* if user.id === review.user.id NO btn*/}
-                {/* {user.id === post.user.id || user.id == review.user.id && ( */}
+                </div>
             </div>
         </div>
         </>
