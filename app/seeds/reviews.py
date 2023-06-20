@@ -22,16 +22,16 @@ def seed_reviews():
         content='Hit the gym after I saw this...', rating=4, post_id=14, user_id=5, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review6= Review(
-        content='Someone let me know how long they spent doing CGI for this', rating=4, post_id=20, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Someone let me know how long they spent doing CGI for this', rating=4, post_id=21, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review7= Review(
-        content='Had one eye open the whole time', rating=3, post_id=18, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Had one eye open the whole time', rating=3, post_id=19, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review8= Review(
-        content='WAR...HOOO', rating=4, post_id=25, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='WAR...HOOO', rating=4, post_id=26, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review9= Review(
-        content='Took 6 guys to move a rock nice!!', rating=1, post_id=29, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Took 6 guys to move a rock nice!!', rating=1, post_id=30, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review10= Review(
         content='This is a masterpiece', rating=5, post_id=8, user_id=2, created_at=fake.date_between(start_date='-5y', end_date='today')
@@ -43,7 +43,7 @@ def seed_reviews():
         content='This makes me wanna work on my jump shot(never played basketball in my life)', rating=4, post_id=3, user_id=3, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review13= Review(
-        content='GIVE THEM THE OSCAR!', rating=5, post_id=27, user_id=3, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='GIVE THEM THE OSCAR!', rating=5, post_id=28, user_id=3, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review14= Review(
         content='Family is everything', rating=5, post_id=1, user_id=9, created_at=fake.date_between(start_date='-5y', end_date='today')
@@ -58,25 +58,25 @@ def seed_reviews():
         content='Okay why did I not read the book first', rating=3, post_id=16, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review18= Review(
-        content='Riddle me this, riddle me that mans...how is he for sure gonna mess with the batmans', rating=5, post_id=19, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Riddle me this, riddle me that mans...how is he for sure gonna mess with the batmans', rating=5, post_id=20, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review19= Review(
         content='What they said!! ^^', rating=5, post_id=8, user_id=4, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review20= Review(
-        content='Had this on while I was coding, pretty good watch', rating=4, post_id=18, user_id=5, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Had this on while I was coding, pretty good watch', rating=4, post_id=23, user_id=5, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review21= Review(
         content='This was such a good murder mystery...gives me some inspiritation', rating=3, post_id=18, user_id=5, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review22= Review(
-        content='Why did David tell me to watch this', rating=3, post_id=26, user_id=5, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Why did David tell me to watch this', rating=3, post_id=27, user_id=5, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review23= Review(
         content='This was fire bring Miles to the big screen', rating=5, post_id=4, user_id=6, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review24= Review(
-        content="I should've bought a home 15 years ago but I was messing around in 2nd grade", rating=4, post_id=21, user_id=6, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content="I should've bought a home 15 years ago but I was messing around in 2nd grade", rating=4, post_id=22, user_id=6, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review25= Review(
         content='No Megan Fox, no good rating', rating=2, post_id=6, user_id=6, created_at=fake.date_between(start_date='-5y', end_date='today')
@@ -97,7 +97,7 @@ def seed_reviews():
         content='WHY DID I LIKE THIS SO MUCH', rating=4, post_id=10, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review31= Review(
-        content='I am a weeb I love all anime', rating=5, post_id=28, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='I am a weeb I love all anime', rating=5, post_id=29, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review32= Review(
         content='HIYAAAAAA!!!!', rating=4, post_id=24, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
@@ -109,7 +109,7 @@ def seed_reviews():
         content='Saw this with David, wow did not disappoint', rating=5, post_id=8, user_id=9, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review35= Review(
-        content='Non-action for almost 3 hours my brain!!', rating=3, post_id=23, user_id=10, created_at=fake.date_between(start_date='-5y', end_date='today')
+        content='Non-action for almost 3 hours my brain!!', rating=3, post_id=24, user_id=10, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
     review36= Review(
         content='I agree, Josh Hutcherson has my heart', rating=5, post_id=8, user_id=10, created_at=fake.date_between(start_date='-5y', end_date='today')

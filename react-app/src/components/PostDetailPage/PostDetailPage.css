@@ -1,5 +1,26 @@
+.post-detail-house {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 100px;
+}
+
 .details {
     width: 400px;
     /* overflow: scroll; */
     overflow-wrap: break-word;
+    overflow: auto;
+    height: 500px;
+}
+
+.details > p {
+    margin-top: 10px;
+}
+
+#detail-reviews-word {
+    margin-top: 10px;
+}
+
+.detail-reviews {
+    gap: 10px;
 }

@@ -42,7 +42,6 @@ const ProfilePage = () => {
 
     return (
         <>
-        <h2>Profile Page Landing</h2>
         <div className='profile-landing-house'>
         <Carousel infiniteLoop={true} responsive={responsive}>
             {userPosts.map(post => {

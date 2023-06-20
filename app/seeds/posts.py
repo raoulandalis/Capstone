@@ -61,46 +61,46 @@ def seed_posts():
     post18 = Post(
         name='Glass Onion', description="Tech billionaire Miles Bron invites his friends for a getaway on his private Greek island. When someone turns up dead, Detective Benoit Blanc is put on the case.", genre='Mystery', post_image='https://m.media-amazon.com/images/M/MV5BYmZlZDZkZjYtNzE5Mi00ODFhLTk2OTgtZWVmODBiZTI4NGFiXkEyXkFqcGdeQXVyMTE5MTg5NDIw._V1_FMjpg_UX1000_.jpg', rating=3, user_id=6, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post18 = Post(
+    post19 = Post(
         name='Barbarian', description="A young woman discovers the rental home she booked is already occupied by a stranger. Against her better judgment, she decides to spend the night but soon discovers there's a lot more to fear than just an unexpected house guest.", genre='Horror', post_image='https://m.media-amazon.com/images/M/MV5BN2M3Y2NhMGYtYjUxOS00M2UwLTlmMGUtYzY4MzFlNjZkYzY2XkEyXkFqcGdeQXVyODc0OTEyNDU@._V1_FMjpg_UX1000_.jpg', rating=4, user_id=6, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post19 = Post(
+    post20 = Post(
         name='The Batman', description="Batman ventures into Gotham City's underworld when a sadistic killer leaves behind a trail of cryptic clues.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg', rating=3, user_id=6, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post20 = Post(
+    post21 = Post(
         name='Avatar: The Way of Water', description="Jake Sully and Ney'tiri have formed a family and are doing everything to stay together. However, they must leave their home and explore the regions of Pandora. When an ancient threat resurfaces, Jake must fight a difficult war against the humans.", genre='Adventure', post_image='https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_FMjpg_UX1000_.jpg', rating=4, user_id=7, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post21 = Post(
+    post22 = Post(
         name='The Big Short', description="In 2006-2007 a group of investors bet against the United States mortgage market. In their research, they discover how flawed and corrupt the market is.", genre='Drama', post_image='https://m.media-amazon.com/images/M/MV5BNDc4MThhN2EtZjMzNC00ZDJmLThiZTgtNThlY2UxZWMzNjdkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_FMjpg_UX1000_.jpg', rating=3, user_id=7, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post22 = Post(
+    post23 = Post(
         name='PAW Patrol: The Movie', description="When their biggest rival, Humdinger, starts wreaking havoc as the mayor of Adventure City, Ryder and everyone's favorite heroic pups kick into high gear to face the challenge.", genre='Adventure', post_image='https://m.media-amazon.com/images/M/MV5BOTFkN2JhOGEtODQzOC00NzA2LThkNzktYjhkMWIyNjM5YjNlXkEyXkFqcGdeQXVyODUwNjEzMzg@._V1_FMjpg_UX1000_.jpg', rating=5, user_id=7, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post23 = Post(
+    post24 = Post(
         name='John Wick: Chapter 4', description="With the price on his head ever increasing, legendary hit man John Wick takes his fight against the High Table global as he seeks out the most powerful players in the underworld, from New York to Paris to Japan to Berlin.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_FMjpg_UX1000_.jpg', rating=3, user_id=9, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post24 = Post(
+    post25 = Post(
         name='Kung Fu Hustle', description="When the hapless Sing and his dim-witted pal Bone try to scam the residents of Pig Sty Alley into thinking they're members of the dreaded Axe Gang, the real gangsters descend on this Shanghai slum to restore their fearsome reputation.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BMjZiOTNlMzYtZWYwZS00YWJjLTk5NDgtODkwNjRhMDI0MjhjXkEyXkFqcGdeQXVyMjgyNjk3MzE@._V1_FMjpg_UX1000_.jpg', rating=4, user_id=9, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post25 = Post(
+    post26 = Post(
         name='Rush Hour', description="When a Chinese diplomat's daughter is kidnapped in Los Angeles, he calls in Hong Kong Detective Inspector Lee to assist the FBI with the case. But the FBI doesn't want anything to do with Lee, and they dump him off on the LAPD, who assign wisecracking Detective James Carter to watch over him.", genre='Action', post_image='https://m.media-amazon.com/images/M/MV5BYWM2NDZmYmYtNzlmZC00M2MyLWJmOGUtMjhiYmQ2OGU1YTE1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg', rating=5, user_id=9, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post26 = Post(
+    post27 = Post(
         name='I Want to Eat Your Pancreas', description='An aloof boy comes across a book in a hospital waiting room. He soon discovers that it is a diary kept by his very popular classmate who reveals to him that she is secretly suffering from a fatal pancreatic illness.', genre='Romance', post_image='https://m.media-amazon.com/images/M/MV5BNDM4MWE3NGQtODlkYS00NWU5LTg3ZjMtMTEyNjljOWI4NWIxXkEyXkFqcGdeQXVyNzkzODk2Mzc@._V1_.jpg', rating=5, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post27 = Post(
+    post28 = Post(
         name='Everything Everywhere All at Once', description='When an interdimensional rupture unravels reality, an unlikely hero must channel her newfound powers to fight bizarre and bewildering dangers from the multiverse as the fate of the world hangs in the balance.', genre='Sci-Fi/Adventure', post_image='https://m.media-amazon.com/images/M/MV5BYTdiOTIyZTQtNmQ1OS00NjZlLWIyMTgtYzk5Y2M3ZDVmMDk1XkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_FMjpg_UX1000_.jpg', rating=5, user_id=10, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post28 = Post(
+    post29 = Post(
         name='Jujutsu Kaisen 0', description='Yuta Okkotsu gains control of an extremely powerful, cursed spirit and gets enrolled in the Tokyo Prefectural Jujutsu High School by sorcerers to help him control his power and keep an eye on him.', genre='Fantasy/Action', post_image='https://m.media-amazon.com/images/M/MV5BODM0NmVjMzUtOTJhNi00N2ZhLWFkYmMtYmZmNjRiY2M1YWY4XkEyXkFqcGdeQXVyOTgxOTA5MDg@._V1_FMjpg_UX1000_.jpg', rating=5, user_id=10, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
-    post29 = Post(
+    post30 = Post(
         name='The Last Airbender', description='A coming-of-age story that follows Aang, a 12-year-old boy who is the key to saving the world. Along the way, Aang meets his friends Katara, Sokka, and others as they liberate the Water Tribe and Earth Kingdoms from the reign of the Fire Nation.', genre='Fantasy/Action', post_image='https://m.media-amazon.com/images/M/MV5BMTM1NjE0NDA0MV5BMl5BanBnXkFtZTcwODE4NDg1Mw@@._V1_FMjpg_UX1000_.jpg', rating=1, user_id=10, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
 
 
 
-    posts = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post16, post17, post18, post19, post20, post21, post22, post23, post24, post25, post26, post27, post28, post29]
+    posts = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post16, post17, post18, post19, post20, post21, post22, post23, post24, post25, post26, post27, post28, post29, post30]
 
     [db.session.add(post) for post in posts]
     db.session.commit()

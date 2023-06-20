@@ -27,6 +27,7 @@ function LoginFormModal() {
   const demoUser = (e) => {
     e.preventDefault()
     closeModal()
+    history.push("/posts")
     return dispatch(login("demo@aa.io", "password"))
   }
 

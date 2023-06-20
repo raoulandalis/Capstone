@@ -53,7 +53,7 @@ const PostsLanding = () => {
         <h2 id="pl-message">Trending</h2>
         <div className='post-landing-house'>
             <Carousel infiniteLoop={true} responsive={responsive}>
-                {posts.map((post) => (
+                {posts.filter(post => post.rating > 3).map((post) => (
                 <div key={post.id} className="post-tiles">
                     {user ? (
                     <NavLink to={`/posts/${post.id}`} style={{ textDecoration: 'none', color: 'black' }}>
