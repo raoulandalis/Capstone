@@ -88,10 +88,19 @@ def seed_posts():
     post26 = Post(
         name='I Want to Eat Your Pancreas', description='An aloof boy comes across a book in a hospital waiting room. He soon discovers that it is a diary kept by his very popular classmate who reveals to him that she is secretly suffering from a fatal pancreatic illness.', genre='Romance', post_image='https://m.media-amazon.com/images/M/MV5BNDM4MWE3NGQtODlkYS00NWU5LTg3ZjMtMTEyNjljOWI4NWIxXkEyXkFqcGdeQXVyNzkzODk2Mzc@._V1_.jpg', rating=5, user_id=8, created_at=fake.date_between(start_date='-5y', end_date='today')
     )
+    post27 = Post(
+        name='Everything Everywhere All at Once', description='When an interdimensional rupture unravels reality, an unlikely hero must channel her newfound powers to fight bizarre and bewildering dangers from the multiverse as the fate of the world hangs in the balance.', genre='Sci-Fi/Adventure', post_image='https://m.media-amazon.com/images/M/MV5BYTdiOTIyZTQtNmQ1OS00NjZlLWIyMTgtYzk5Y2M3ZDVmMDk1XkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_FMjpg_UX1000_.jpg', rating=5, user_id=10, created_at=fake.date_between(start_date='-5y', end_date='today')
+    )
+    post28 = Post(
+        name='Jujutsu Kaisen 0', description='Yuta Okkotsu gains control of an extremely powerful, cursed spirit and gets enrolled in the Tokyo Prefectural Jujutsu High School by sorcerers to help him control his power and keep an eye on him.', genre='Fantasy/Action', post_image='https://m.media-amazon.com/images/M/MV5BODM0NmVjMzUtOTJhNi00N2ZhLWFkYmMtYmZmNjRiY2M1YWY4XkEyXkFqcGdeQXVyOTgxOTA5MDg@._V1_FMjpg_UX1000_.jpg', rating=5, user_id=10, created_at=fake.date_between(start_date='-5y', end_date='today')
+    )
+    post29 = Post(
+        name='The Last Airbender', description='A coming-of-age story that follows Aang, a 12-year-old boy who is the key to saving the world. Along the way, Aang meets his friends Katara, Sokka, and others as they liberate the Water Tribe and Earth Kingdoms from the reign of the Fire Nation.', genre='Fantasy/Action', post_image='https://m.media-amazon.com/images/M/MV5BMTM1NjE0NDA0MV5BMl5BanBnXkFtZTcwODE4NDg1Mw@@._V1_FMjpg_UX1000_.jpg', rating=1, user_id=10, created_at=fake.date_between(start_date='-5y', end_date='today')
+    )
 
 
 
-    posts = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post16, post17, post18, post19, post20, post21, post22, post23, post24, post25, post26]
+    posts = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post16, post17, post18, post19, post20, post21, post22, post23, post24, post25, post26, post27, post28, post29]
 
     [db.session.add(post) for post in posts]
     db.session.commit()
