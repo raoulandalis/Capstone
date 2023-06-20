@@ -26,8 +26,9 @@ const NewPostForm = () => {
         if (name.length < 5 || name.length > 50) error.name = "Name must be between 5 and 50 characters"
         if (!description) error.description = "Description is required"
         if (!genre) error.genre = "Genre is required"
-        if (genre.length < 5 || genre.length > 50) error.genre = "Name must be between 5 and 50 characters"
+        if (genre.length < 5 || genre.length > 50) error.genre = "Genre must be between 5 and 50 characters"
         if (!post_image) error.post_image = "Image is required"
+        if (!post_image.match(/\.(jpg|jpeg|png)$/)) error.post_image = 'Image must end in .jpg, .jpeg, or .png'
         if (!rating) error.rating = "Rating is required"
         setErrors(error)
     }, [name, description, genre, post_image, rating])
@@ -43,10 +44,6 @@ const NewPostForm = () => {
         formData.append("post_image", post_image)
         formData.append("rating", rating)
 
-        //error handling here
-        // if (!Object.values(errors).length) {
-        //     const data = await dispatch(createPost(formData));
-        // }
 
         const data = await dispatch(createPost(formData));
 
