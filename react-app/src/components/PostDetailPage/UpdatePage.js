@@ -43,7 +43,9 @@ const UpdatePost = () => {
     const submitForm = async (e) => {
 
         e.preventDefault()
+
         setSubmitted(true)
+        if(Object.keys(errors).length) return;
 
         const formData = new FormData();
         formData.append("name", name)
@@ -87,24 +89,24 @@ const UpdatePost = () => {
             <form id="p-form" onSubmit={submitForm}>
                 <label>
                     Name:
+                    {errors.name && submitted && < p style={{ color: "red" }}>{errors.name}</p>}
                     <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
                 </label>
                 <label>
                     Genre:
+                    {errors.genre && submitted && < p style={{ color: "red" }}>{errors.genre}</p>}
                     <input type="text" name="genre" value={genre} onChange={(e) => setGenre(e.target.value)}/>
                 </label>
                 <label>
                     Description:
+                    {errors.description && submitted && < p style={{ color: "red" }}>{errors.description}</p>}
                     <textarea style={{resize: 'none'}} type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
                 </label>
                 <label>
                     Image Link:
+                    {errors.post_image && submitted && < p style={{ color: "red" }}>{errors.post_image}</p>}
                     <input type="text" name="image" value={post_image} onChange={(e) => setPostImage(e.target.value)}/>
                 </label>
-                {/* <label>
-                    Rating:
-                    <input type="number" name="rating" min="1" max="5"  value={rating}onChange={(e) => setRating(e.target.value)}/>
-                </label> */}
                 <label>
                 Rating:
                 {errors.rating && submitted && <p style={{ color: 'red' }}>{errors.rating}</p>}

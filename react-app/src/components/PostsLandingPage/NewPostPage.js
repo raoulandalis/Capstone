@@ -35,7 +35,9 @@ const NewPostForm = () => {
 
     const submitForm = async (e) => {
         e.preventDefault()
+
         setSubmitted(true)
+        if(Object.keys(errors).length) return;
 
         const formData = new FormData();
         formData.append("name", name)
@@ -92,11 +94,6 @@ const NewPostForm = () => {
                     {errors.post_image && submitted && < p style={{ color: "red" }}>{errors.post_image}</p>}
                     <input type="text" name="image" onChange={(e) => setPostImage(e.target.value)}/>
                 </label>
-                {/* <label>
-                    Rating:
-                    {errors.rating && submitted && < p style={{ color: "red" }}>{errors.rating}</p>}
-                    <input type="number" name="rating" min="1" max="5" onChange={(e) => setRating(e.target.value)}/>
-                </label> */}
                 <label>
                 Rating:
                 {errors.rating && submitted && <p style={{ color: 'red' }}>{errors.rating}</p>}
