@@ -12,3 +12,15 @@
 .post-tiles {
     width: 300px;
 }
+
+/* .post-tiles:hover {
+    box-shadow: 5px 5px 5px grey;
+} */
+
+#feed-img {
+    border-radius: 5px;
+}
+
+#feed-img:hover {
+    box-shadow: 5px 5px 5px grey;
+}

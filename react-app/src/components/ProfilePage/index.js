@@ -49,7 +49,7 @@ const ProfilePage = () => {
                     <>
                     <NavLink to={`/posts/${post.id}`} style={{textDecoration: 'none', color: 'black'}}>
                         <div key={post.id} className="post-tiles">
-                            <img src={post.post_image} style={{height: '400px', width: '100%', objectFit:'cover'}}></img>
+                            <img src={post.post_image} style={{height: '400px', width: '100%', objectFit:'cover', borderRadius: '5px'}}></img>
                             <h2>{post.name}</h2>
                             <h3>My Rating {starRating(post.rating)}</h3>
                             <h4>{post.genre}</h4>

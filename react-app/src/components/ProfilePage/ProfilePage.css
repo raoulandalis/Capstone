@@ -8,3 +8,7 @@
     gap: 5px;
     justify-content: space-around;
 }
+
+.post-tiles > img:hover {
+    box-shadow: 5px 5px 5px grey;
+}
