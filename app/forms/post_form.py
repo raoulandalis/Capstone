@@ -24,6 +24,8 @@ def validate_image(form, field):
         image = field.data.lower()
         if not any(image.endswith(ext) for ext in allowed_extensions):
             raise ValidationError('Image must end in .jpg, .jpeg, or .png')
+        if not image.startswith(('http://', 'https://')):
+            raise ValidationError('URL must start with "http://" or "https://"')
 
 class PostForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired(message="Name is required"), general_text])
