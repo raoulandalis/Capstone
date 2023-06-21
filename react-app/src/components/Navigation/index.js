@@ -13,7 +13,7 @@ function Navigation({ isLoaded }){
 	return (
 		<div className="nav-house">
 			<div className="logo-container">
-				<NavLink exact to="/"><img src="https://i.imgur.com/8qodaIA.png" id="logo"></img></NavLink>
+				<NavLink exact to="/"><img src="https://i.imgur.com/O8Vs0OX.png" id="logo"></img></NavLink>
 			</div>
 			{isLoaded && (
 				<div className="prof-btn">

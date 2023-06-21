@@ -86,7 +86,7 @@ const PostDetailPage = () => {
         }
         <div className="post-detail-house">
             <div>
-                <img src={post.post_image} style={{height: '500px'}}></img>
+                <img src={post.post_image} style={{height: '500px', boxShadow: '5px 5px 5px grey'}}></img>
             </div>
             <div className="details">
                 <div className="top-name">
