@@ -24,3 +24,22 @@
 .detail-reviews {
     gap: 10px;
 }
+
+.title-and-circle {
+    display: flex;
+    /* position: relative; */
+}
+
+/* .title-and-circle > h1{
+    white-space: 'nowrap';
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+
+.progress-bar-wrapper {
+    width: 50px;
+    margin-left: 10px;
+    /* position:absolute;
+    bottom: 5px;
+    right: 5px; */
+}
