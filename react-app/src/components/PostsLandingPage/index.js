@@ -59,16 +59,16 @@ const PostsLanding = () => {
                     <NavLink to={`/posts/${post.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                         <img src={post.post_image} style={{ height: '400px', width: '100%', objectFit: 'cover' }}></img>
                         <h2>{post.name}</h2>
-                        <h3>{post.user.first_name}'s Rating: {starRating(post.rating)}</h3>
-                        <p>{post.genre}</p>
+                        <h3>{post.user.first_name}'s Rating {starRating(post.rating)}</h3>
+                        <h4>{post.genre}</h4>
                         <p>Posted by {post.user.username}</p>
                     </NavLink>
                     ) : (
                     <div style={{cursor: 'not-allowed'}}>
                         <img src={post.post_image} style={{ height: '400px', width: '100%', objectFit: 'cover' }}></img>
                         <h2>{post.name}</h2>
-                        <h3>{post.user.first_name}'s Rating: {starRating(post.rating)}</h3>
-                        <p>{post.genre}</p>
+                        <h3>{post.user.first_name}'s Rating {starRating(post.rating)}</h3>
+                        <h4>{post.genre}</h4>
                         <p>Posted by {post.user.username}</p>
                     </div>
                     )}

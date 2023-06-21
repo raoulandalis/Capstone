@@ -9,6 +9,8 @@ import DeletePostModal from "./DeletePostModal";
 import CreateReviewModal from "./CreateReviewModal"
 import UpdateReviewModal from "./UpdateReview";
 import DeleteReviewModal from "./DeleteReviewModal";
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import "./PostDetailPage.css"
 
 const PostDetailPage = () => {
@@ -20,11 +22,9 @@ const PostDetailPage = () => {
     const posts = useSelector(state => state.posts)
     const user = useSelector(state => state.session.user)
     const reviews = Object.values(useSelector(state => state.reviews))
-    // const review = useSelector(state => state.reviews)
-    // const single_review = useSelector(state => state.reviews)
     const post = posts[postId]
 
-    // console.log("whats this", post)
+
 
     useEffect(() => {
         dispatch(getAllPosts())
@@ -48,6 +48,22 @@ const PostDetailPage = () => {
 
     const postOwner = post.user.id === user.id
     const userReviewsForPost = reviews.find(review => (review.post_id == postId && review.user.id === user.id))
+
+
+    //AVERAGE NUM LOGIC
+    const allRatings = reviews.filter(review => review.post_id === +postId);
+
+    const userRating = post.rating;
+
+    const totalPostRating = allRatings.map(rating => rating.rating).reduce((acc, curr) => acc + curr, 0);
+
+    const totalRating = userRating + totalPostRating;
+
+    const avgRating = (totalRating / ((allRatings.length + 1) * 5)) * 100;
+
+    //this will cap the rating to 100%
+    const percentage = Math.min(avgRating, 100);
+
 
 
     return (
@@ -74,9 +90,44 @@ const PostDetailPage = () => {
             </div>
             <div className="details">
                 <div className="top-name">
-                    <h1>{post.name}</h1>
+
+                {post.name.length < 30 ? (
+                    <div className="title-and-circle">
+                        <h1>{post.name}</h1>
+                        <div className="progress-bar-wrapper">
+                            <CircularProgressbar
+                                value={percentage}
+                                maxValue={5}
+                                text={`${percentage.toFixed(0)}%`}
+                                styles={buildStyles({
+                                    textSize: '25px',
+                                    pathColor: 'rgb(183, 178, 36)',
+                                    textColor: 'rgb(183, 178, 36)'
+                                    })}
+                                />
+                        </div>
+                    </div>
+                    ) : (
+                    <div className="title-and-circle">
+                        <h2>{post.name}</h2>
+                        <div className="progress-bar-wrapper">
+                            <CircularProgressbar
+                                value={percentage}
+                                maxValue={5}
+                                text={`${percentage.toFixed(0)}%`}
+                                styles={buildStyles({
+                                    textSize: '25px',
+                                    pathColor: 'rgb(183, 178, 36)',
+                                    textColor: 'rgb(183, 178, 36)'
+                                    })}
+                                />
+                        </div>
+                    </div>
+                    )}
+
+
                     <h3>{post.genre}</h3>
-                    <p>{post.description}</p>
+                    <p style={{marginTop:'5px'}}>{post.description}</p>
                 </div>
                 <h3 id="detail-reviews-word">Reviews</h3>
                 <div className="detail-reviews">
@@ -85,9 +136,9 @@ const PostDetailPage = () => {
                     return (
                         <>
                         <div>
-                            <div>{starRating(review.rating)}</div>
-                            <div>{review.content}</div>
-                            <div>{review.user.username}</div>
+                            <div style={{marginTop: '15px'}}>{starRating(review.rating)}</div>
+                            <div style={{marginTop: '5px'}}>{review.content}</div>
+                            <h4 style={{marginTop: '5px'}}>{review.user.username}</h4>
                         </div>
                         {review.user.id === user.id && (
                             <>
