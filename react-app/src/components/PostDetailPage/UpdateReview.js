@@ -56,12 +56,14 @@ const UpdateReviewModal = ({reviewId}) => {
 
     return (
         <>
-        <h2>Update Review Modal</h2>
+        <i class="fa-regular fa-circle-xmark" style={{marginLeft:'380px', marginTop:'10px', cursor:'pointer'}} onClick={() => closeModal()}></i>
+        <h2 style={{textAlign:"center", marginTop:'20px'}}>Elevate Your Review!</h2>
         <div className="review-form-house">
             <form onSubmit={submitForm} style={{display: 'flex', flexDirection:'column'}}>
                 <label>
                     {errors.content && submitted && < p style={{ color: "red" }}>{errors.content}</p>}
                     <textarea
+                        rows='5'
                         style={{resize: 'none'}}
                         value={content}
                         placeholder="Write a review..."
@@ -70,18 +72,17 @@ const UpdateReviewModal = ({reviewId}) => {
                         minLength={5}
                     />
                 </label>
-                <label>
-                Rating:
+                <label style={{marginBottom:'20px'}}>
                 {errors.rating && submitted && <p style={{ color: 'red' }}>{errors.rating}</p>}
                     <StarRatings
                     rating={+rating}
-                    starRatedColor="#163564"
+                    starRatedColor="rgb(183, 178, 36)"
                     changeRating={value => setRating(value)}
                     numberOfStars={5}
                     name="rating"
                 />
                 </label>
-                <button>POST</button>
+                <button id="review-post-btn">POST</button>
             </form>
         </div>
         </>

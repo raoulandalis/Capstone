@@ -79,3 +79,29 @@
     background-color: white;
     margin-right: 10px;
 }
+
+#modal-content {
+    border-radius: 5px 5px 5px
+}
+
+.review-form-house {
+    margin: 50px;
+}
+
+#review-post-btn {
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #163564;
+    color: white;
+    font-size: 15px
+}
+
+#review-post-btn:hover {
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(183, 178, 36)
+  }
