@@ -67,15 +67,6 @@ const PostDetailPage = () => {
 
     return (
         <>
-        {/* {postOwner &&
-            <>
-            <button onClick={() => history.push(`/posts/${postId}/update`)}>Update Post</button>
-            <OpenModalButton
-                buttonText={'Delete Post'}
-                modalComponent={<DeletePostModal postId={postId}/>}
-            />
-            </>
-        } */}
         <div className="post-detail-house">
             <div className="side-bar">
             {postOwner &&
@@ -92,7 +83,7 @@ const PostDetailPage = () => {
             }
             </div>
             <div>
-                <img src={post.post_image} style={{height: '500px', boxShadow: '5px 5px 5px grey'}}></img>
+                <img src={post.post_image} style={{height: '500px', boxShadow: '5px 5px 5px grey'}}onError={(e) => {e.target.src="https://i.imgur.com/paTs3e4.png"}}></img>
             </div>
             <div className="details">
                 <div className="top-name">

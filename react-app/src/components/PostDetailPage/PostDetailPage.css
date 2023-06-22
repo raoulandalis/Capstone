@@ -105,3 +105,27 @@
     padding-bottom: 10px;
     background-color: rgb(183, 178, 36)
   }
+
+  .delete-post-house {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .delete-post-house > button {
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #163564;
+    color: white;
+  }
+
+  .delete-post-house > button:hover {
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(150, 23, 23)
+  }

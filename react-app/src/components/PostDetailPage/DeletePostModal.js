@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { deletePost } from "../../store/posts";
 import { useModal } from "../../context/Modal"
+import "./PostDetailPage.css"
 
 const DeletePostModal = ({postId}) => {
     const dispatch = useDispatch()
@@ -20,7 +21,7 @@ const DeletePostModal = ({postId}) => {
 
     return (
         <div className="delete-post-house">
-            <h2>Are you sure you want to delete your movie?</h2>
+            <h2 style={{marginBottom:'10px'}}>Are you sure you want to delete your movie?</h2>
             <button onClick={deleteBtn}>Yes (delete my movie)</button>
             <button onClick={() => closeModal()}>No (don't delete)</button>
         </div>

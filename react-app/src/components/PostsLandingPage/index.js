@@ -57,7 +57,7 @@ const PostsLanding = () => {
                 <div key={post.id} className="post-tiles">
                     {user ? (
                     <NavLink to={`/posts/${post.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-                        <img src={post.post_image} style={{ height: '400px', width: '100%', objectFit: 'cover', borderRadius: '5px'}}></img>
+                        <img src={post.post_image} style={{ height: '400px', width: '100%', objectFit: 'cover', borderRadius: '5px'}} onError={(e) => {e.target.src="https://i.imgur.com/paTs3e4.png"}}></img>
                         <h2>{post.name}</h2>
                         <h3>{post.user.first_name}'s Rating {starRating(post.rating)}</h3>
                         <h4>{post.genre}</h4>
@@ -75,9 +75,8 @@ const PostsLanding = () => {
                 </div>
                 ))}
             </Carousel>
-            </div>
-
-            </>
+        </div>
+        </>
         )
 }
 

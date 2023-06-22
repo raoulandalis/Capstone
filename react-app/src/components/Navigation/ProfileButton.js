@@ -37,19 +37,24 @@ function ProfileButton({ user }) {
     history.push("/")
   };
 
+  const handleProfile = () => {
+    history.push('/profile');
+    closeMenu()
+  }
+
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
   return (
     <>
       <button id="profile-icon" onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <i class="fa-solid fa-circle-user"></i>
       </button>
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <div className="user-menu">
             <button>{user.username}</button>
-            <button onClick={() => history.push("/profile")}>My Profile</button>
+            <button onClick={handleProfile}>My Profile</button>
             <button onClick={handleLogout}>Log Out</button>
           </div>
         ) : (
