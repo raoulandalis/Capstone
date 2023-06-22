@@ -14,6 +14,8 @@ const ProfilePage = () => {
 
     const userPosts = posts.filter(post => post.user.id === user.id)
 
+    console.log("what am i================================================", userPosts)
+
     useEffect(() => {
         dispatch(getAllPosts())
     }, [dispatch])
@@ -43,26 +45,45 @@ const ProfilePage = () => {
     return (
         <>
         <div className='profile-landing-house'>
-        <Carousel infiniteLoop={true} responsive={responsive}>
-            {userPosts.map(post => {
+            {userPosts.length === 0 ? (
+            <h2>Let's go to the movies!</h2>
+            ) : (
+            <Carousel infiniteLoop={true} responsive={responsive}>
+                {userPosts.map(post => {
                 return (
-                    <>
-                    <NavLink to={`/posts/${post.id}`} style={{textDecoration: 'none', color: 'black'}}>
-                        <div key={post.id} className="post-tiles">
-                            <img src={post.post_image} style={{height: '400px', width: '100%', objectFit:'cover', borderRadius: '5px'}} onError={(e) => {e.target.src="https://i.imgur.com/paTs3e4.png"}}></img>
-                            <h2>{post.name}</h2>
-                            <h3>My Rating {starRating(post.rating)}</h3>
-                            <h4>{post.genre}</h4>
-                            <p>Posted by {post.user.username}</p>
-                        </div>
+                    <NavLink
+                    to={`/posts/${post.id}`}
+                    style={{ textDecoration: 'none', color: 'black' }}
+                    key={post.id}
+                    >
+                    <div className="post-tiles">
+                        <img
+                            src={post.post_image}
+                            style={{
+                            height: '400px',
+                            width: '100%',
+                            objectFit: 'cover',
+                            borderRadius: '5px'
+                            }}
+                            onError={e => {
+                            e.target.src = "https://i.imgur.com/paTs3e4.png"
+                            }}
+                            alt="Post Image"
+                        />
+                    <h2>{post.name}</h2>
+                    <h3>My Rating {starRating(post.rating)}</h3>
+                    <h4>{post.genre}</h4>
+                    <p>Posted by {post.user.username}</p>
+                 </div>
                     </NavLink>
-                    </>
                 )
             })}
             </Carousel>
+            )}
         </div>
         </>
-    )
+
+        )
 }
 
 export default ProfilePage
