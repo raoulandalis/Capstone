@@ -12,7 +12,6 @@ const UpdateReviewModal = ({reviewId}) => {
     const current_review = reviews[reviewId]
     const { closeModal } = useModal()
 
-    console.log("==============================", reviews[reviewId].rating)
 
     //state slices
     const [content, setContent] = useState(current_review?.content || '')
