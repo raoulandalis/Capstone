@@ -67,7 +67,7 @@ const PostDetailPage = () => {
 
     return (
         <>
-        {postOwner &&
+        {/* {postOwner &&
             <>
             <button onClick={() => history.push(`/posts/${postId}/update`)}>Update Post</button>
             <OpenModalButton
@@ -75,8 +75,22 @@ const PostDetailPage = () => {
                 modalComponent={<DeletePostModal postId={postId}/>}
             />
             </>
-        }
+        } */}
         <div className="post-detail-house">
+            <div className="side-bar">
+            {postOwner &&
+                <>
+
+                <i class="fa-solid fa-file-pen" onClick={() => history.push(`/posts/${postId}/update`)} style={{cursor:'pointer', fontSize:"20px", marginLeft: '5px'}}></i>
+
+                <OpenModalButton
+                buttonText={<i class="fa-solid fa-trash" style={{fontSize:'20px'}}></i>}
+                modalComponent={<DeletePostModal postId={postId}/>}
+                />
+
+                </>
+            }
+            </div>
             <div>
                 <img src={post.post_image} style={{height: '500px', boxShadow: '5px 5px 5px grey'}}></img>
             </div>
