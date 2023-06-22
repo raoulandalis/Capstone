@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom'
 import { createPost } from '../../store/posts';
 import StarRatings from 'react-star-ratings';
-import './PostLandingPage.css'
+import './NewPostPage.css'
 
 const NewPostForm = () => {
     const dispatch = useDispatch();
@@ -71,42 +71,42 @@ const NewPostForm = () => {
 
     return (
         <>
-        <h2 style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>Create Post Page</h2>
+        <h2 style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>Share a New Film!</h2>
         <div className='post-form-house'>
             <form id="p-form" onSubmit={submitForm}>
-                <label>
-                    Name:
+                <label className="form-label">
+                    Name
                     {errors.name && submitted && < p style={{ color: "red" }}>{errors.name}</p>}
                     <input type="text" name="name" onChange={(e) => setName(e.target.value)}/>
                 </label>
-                <label>
-                    Genre:
+                <label className="form-label">
+                    Genre
                     {errors.genre && submitted && < p style={{ color: "red" }}>{errors.genre}</p>}
                     <input type="text" name="genre" onChange={(e) => setGenre(e.target.value)}/>
                 </label>
-                <label>
-                    Description:
+                <label className="form-label">
+                    Description
                     {errors.description && submitted && < p style={{ color: "red" }}>{errors.description}</p>}
-                    <textarea style={{resize: 'none'}} type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
+                    <textarea style={{resize: 'none'}} rows="5" type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
                 </label>
-                <label>
-                    Image Link:
+                <label className="form-label">
+                    Image Link
                     {errors.post_image && submitted && < p style={{ color: "red" }}>{errors.post_image}</p>}
                     <input type="text" name="image" onChange={(e) => setPostImage(e.target.value)}/>
                 </label>
-                <label>
-                Rating:
+                <label className="form-label">
                 {errors.rating && submitted && <p style={{ color: 'red' }}>{errors.rating}</p>}
                     <StarRatings
+                    className="star-ratings"
                     rating={rating}
-                    starRatedColor="#163564"
+                    starRatedColor="rgb(183, 178, 36)"
                     changeRating={value => setRating(value)}
                     numberOfStars={5}
                     name="rating"
                 />
                 </label>
 
-                <button>POST</button>
+                <button id="post-btn">POST</button>
             </form>
             </div>
         </>

@@ -7,10 +7,22 @@
 
 .details {
     width: 400px;
-    /* overflow: scroll; */
     overflow-wrap: break-word;
     overflow: auto;
     height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.side-bar > button {
+    border: none;
+    background-color: white;
 }
 
 .details > p {
@@ -27,19 +39,69 @@
 
 .title-and-circle {
     display: flex;
-    /* position: relative; */
 }
-
-/* .title-and-circle > h1{
-    white-space: 'nowrap';
-    overflow: hidden;
-    text-overflow: ellipsis;
-} */
 
 .progress-bar-wrapper {
     width: 50px;
     margin-left: 10px;
-    /* position:absolute;
-    bottom: 5px;
-    right: 5px; */
 }
+
+#p-review-btn {
+    margin-top: 10px;
+}
+
+#p-review-btn > button {
+    border: 2px light grey;
+    font-size: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: grey
+}
+
+#p-review-btn > button:hover {
+    border: 1px light rgb(175, 173, 173);
+    font-size: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: darkgrey;
+    color: white
+}
+
+.detail-reviews > button {
+    font-size: 15px;
+    border: none;
+    background-color: white;
+}
+
+.detail-reviews > button > .fa-solid{
+    font-size: 15px;
+    border: none;
+    background-color: white;
+    margin-right: 10px;
+}
+
+#modal-content {
+    border-radius: 5px 5px 5px
+}
+
+.review-form-house {
+    margin: 50px;
+}
+
+#review-post-btn {
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #163564;
+    color: white;
+    font-size: 15px
+}
+
+#review-post-btn:hover {
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(183, 178, 36)
+  }

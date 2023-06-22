@@ -11,8 +11,6 @@ const NewReviewModal = ({postId}) => {
     const { closeModal } = useModal()
     const reviews = useSelector(state => state.reviews)
 
-    console.log("am i in here?============================================")
-
     //state slices
     const [content, setContent] = useState('')
     const [rating, setRating] = useState('')
@@ -66,13 +64,15 @@ const NewReviewModal = ({postId}) => {
 
     return (
         <>
-        <h2>New Post Modal</h2>
+        <i class="fa-regular fa-circle-xmark" style={{marginLeft:'380px', marginTop:'10px', cursor:'pointer'}} onClick={() => closeModal()}></i>
+        <h2 style={{textAlign:"center", marginTop:'20px'}}>How was it?</h2>
         <div className="review-form-house">
             <form onSubmit={submitForm} style={{display: 'flex', flexDirection:'column'}}>
                 <label>
                     {errors.content && submitted && < p style={{ color: "red" }}>{errors.content}</p>}
                     <textarea
-                        style={{resize: 'none'}}
+                        rows='5'
+                        style={{resize: 'none', marginBottom:'10px'}}
                         value={content}
                         placeholder="Write a review..."
                         required
@@ -80,18 +80,17 @@ const NewReviewModal = ({postId}) => {
                         minLength={5}
                     />
                 </label>
-                <label>
-                Rating:
+                <label style={{marginBottom:'20px'}}>
                 {errors.rating && submitted && <p style={{ color: 'red' }}>{errors.rating}</p>}
                     <StarRatings
                     rating={+rating}
-                    starRatedColor="#163564"
+                    starRatedColor="rgb(183, 178, 36)"
                     changeRating={value => setRating(value)}
                     numberOfStars={5}
                     name="rating"
                 />
                 </label>
-                <button>POST</button>
+                <button id="review-post-btn">POST</button>
             </form>
         </div>
         </>

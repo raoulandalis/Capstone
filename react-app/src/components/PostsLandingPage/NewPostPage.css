@@ -1,0 +1,53 @@
+/* #p-form {
+    align-items: center;
+    margin-top: 50px;
+    gap: 10px;
+} */
+
+#p-form {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 25px;
+  }
+
+  .post-form-house {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .form-label {
+    margin-bottom: 10px;
+  }
+
+  .form-label > input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-label > .star-ratings {
+    display: flex;
+    margin-left: 40px;
+    margin-top: 5px;
+  }
+
+  #post-btn {
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #163564;
+    color: white;
+    font-size: 15px
+  }
+
+  #post-btn:hover {
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(183, 178, 36)
+  }
