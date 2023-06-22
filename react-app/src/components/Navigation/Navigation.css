@@ -31,12 +31,11 @@
 }
 
 #profile-icon {
-  margin-right: 10px;
-  padding: 4px 4px;
-  border-radius: 6px;
-  background-color: black;
+  border: none;
+  background-color: #163564;
+  font-size: 25px;
   /* color: #0FB6DE; */
-  color: #163564;
+  /* color: #163564; */
 }
 
 .user-menu {

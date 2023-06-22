@@ -75,9 +75,8 @@ const PostsLanding = () => {
                 </div>
                 ))}
             </Carousel>
-            </div>
-
-            </>
+        </div>
+        </>
         )
 }
 

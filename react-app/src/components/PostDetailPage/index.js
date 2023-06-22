@@ -67,15 +67,6 @@ const PostDetailPage = () => {
 
     return (
         <>
-        {/* {postOwner &&
-            <>
-            <button onClick={() => history.push(`/posts/${postId}/update`)}>Update Post</button>
-            <OpenModalButton
-                buttonText={'Delete Post'}
-                modalComponent={<DeletePostModal postId={postId}/>}
-            />
-            </>
-        } */}
         <div className="post-detail-house">
             <div className="side-bar">
             {postOwner &&
