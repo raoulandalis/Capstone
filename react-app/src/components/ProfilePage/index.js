@@ -21,6 +21,9 @@ const ProfilePage = () => {
 
     const reviewCount = reviews.filter(review => review.user.id === user.id)
 
+    console.log(userPosts, "post========================================")
+    console.log(reviewCount, "user reviews=======================================")
+
 
 
     useEffect(() => {
@@ -94,7 +97,7 @@ const ProfilePage = () => {
                     </div>
                     <div>Total Ratings
                         <div className="pfp-count">
-                            <h2>{reviewCount.length}</h2>
+                            <h2>{userPosts.length + reviewCount.length}</h2>
                         </div>
                     </div>
                 </div>
