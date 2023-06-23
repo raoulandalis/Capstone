@@ -88,7 +88,7 @@ const PostDetailPage = () => {
             <div className="details">
                 <div className="top-name">
 
-                {post.name.length < 30 ? (
+                {post.name.length < 25 ? (
                     <div className="title-and-circle">
                         <h1>{post.name}</h1>
                         <div className="progress-bar-wrapper">
@@ -98,8 +98,8 @@ const PostDetailPage = () => {
                                 text={`${percentage.toFixed(0)}%`}
                                 styles={buildStyles({
                                     textSize: '25px',
-                                    pathColor: 'rgb(183, 178, 36)',
-                                    textColor: 'rgb(183, 178, 36)'
+                                    pathColor: percentage <= 50 ? 'red' : (percentage > 50 && percentage < 80) ? 'green' : 'rgb(183, 178, 36)',
+                                    textColor: percentage <= 50 ? 'red' : (percentage > 50 && percentage < 80) ? 'green' : 'rgb(183, 178, 36)'
                                     })}
                                 />
                         </div>
@@ -114,8 +114,8 @@ const PostDetailPage = () => {
                                 text={`${percentage.toFixed(0)}%`}
                                 styles={buildStyles({
                                     textSize: '25px',
-                                    pathColor: 'rgb(183, 178, 36)',
-                                    textColor: 'rgb(183, 178, 36)'
+                                    pathColor: percentage <= 50 ? 'red' : (percentage > 50 && percentage < 80) ? 'green' : 'rgb(183, 178, 36)',
+                                    textColor: percentage <= 50 ? 'red' : (percentage > 50 && percentage < 80) ? 'green' : 'rgb(183, 178, 36)'
                                     })}
                                 />
                         </div>
