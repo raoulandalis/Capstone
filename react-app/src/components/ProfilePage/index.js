@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '../../store/posts';
+import {getAllReviews} from '../../store/reviews'
 import { NavLink } from "react-router-dom";
 import "./ProfilePage.css"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const ProfilePage = () => {
 
@@ -12,12 +15,17 @@ const ProfilePage = () => {
     const posts = Object.values(useSelector(state => state.posts))
     const user = useSelector(state => state.session.user)
 
+    const reviews = Object.values(useSelector((state => state.reviews)))
+
     const userPosts = posts.filter(post => post.user.id === user.id)
 
-    console.log("what am i================================================", userPosts)
+    const reviewCount = reviews.filter(review => review.user.id === user.id)
+
+
 
     useEffect(() => {
         dispatch(getAllPosts())
+        dispatch(getAllReviews())
     }, [dispatch])
 
 
@@ -27,6 +35,17 @@ const ProfilePage = () => {
             items: 3
         }
     }
+
+    //TOTAL USER AVERAGE MATH
+
+    const userPostsTotal = userPosts.reduce((total, post) => total + post.rating, 0)
+    const userReviewTotal = reviewCount.map(review => review.rating).reduce((total, rating) => total + rating, 0)
+    const totalRatingsCount = reviewCount.length + userPosts.length
+    const totalRatings = userPostsTotal + userReviewTotal
+
+    const avgRatings = totalRatings / totalRatingsCount
+    const avgRatingsPercentage = (avgRatings / 5) * 100;
+    const percentage = Math.min(avgRatingsPercentage, 100);
 
 
     const starRating = (rating) => {
@@ -48,6 +67,38 @@ const ProfilePage = () => {
             {userPosts.length === 0 ? (
             <h2>Let's go to the movies!</h2>
             ) : (
+            <>
+            <div className="user-info-house">
+                <h1 className="banner-tags">{user.first_name} {user.last_name}</h1>
+                <div className="progress-bar-pfp">
+                    <CircularProgressbar
+                        value={percentage}
+                        maxValue={5}
+                        text={`${percentage.toFixed(0)}%`}
+                        styles={buildStyles({
+                            textSize: '25px',
+                            pathColor: 'rgb(183, 178, 36)',
+                            textColor: 'rgb(183, 178, 36)'
+                            })}
+                    />
+                    <span>Average Movie Score</span>
+                </div>
+                <h2 className="banner-tags">Stats</h2>
+                <div className="stats-house">
+                    <div>Total Watched
+                        <div className="pfp-count">
+                            <div>
+                                <h2>{userPosts.length}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div>Total Ratings
+                        <div className="pfp-count">
+                            <h2>{reviewCount.length}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <Carousel infiniteLoop={true} responsive={responsive}>
                 {userPosts.map(post => {
                 return (
@@ -79,6 +130,7 @@ const ProfilePage = () => {
                 )
             })}
             </Carousel>
+            </>
             )}
         </div>
         </>

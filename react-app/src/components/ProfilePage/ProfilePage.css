@@ -12,3 +12,37 @@
 .post-tiles > img:hover {
     box-shadow: 5px 5px 5px grey;
 }
+
+.user-info-house {
+    margin-bottom: 50px;
+    background-image: url("https://i.imgur.com/QPewstI.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 325px;
+    color: white;
+}
+
+.stats-house {
+    margin-top: 10px;
+    margin-left: 50px;
+    display: flex;
+    gap: 50px;
+}
+
+.pfp-count {
+    font-size: 30px;
+    color: rgb(183, 178, 36)
+}
+
+.banner-tags {
+    margin-left: 50px;
+    padding-top: 20px
+}
+
+.progress-bar-pfp {
+    width: 150px;
+    margin-left: 50px;
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
