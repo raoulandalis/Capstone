@@ -2,7 +2,7 @@
 const GET_POSTS = 'posts/GET_POSTS'
 const CREATE_POST = 'posts/CREATE_POST'
 const EDIT_POST = 'posts/EDIT_POST'
-const DELETE_POST = 'posts/DE'
+const DELETE_POST = 'posts/DELETE_POST'
 
 //action creators
 const getPosts = (posts) => {
@@ -32,6 +32,7 @@ const removePost = (postId) => {
         postId
     }
 }
+
 
 //thunk action creators
 export const getAllPosts = () => async (dispatch) => {
@@ -93,6 +94,7 @@ export const deletePost = (postId) => async (dispatch) => {
         dispatch(removePost(postId))
     }
 }
+
 
 //initial state
 const initialState = {}

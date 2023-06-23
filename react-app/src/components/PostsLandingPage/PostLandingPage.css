@@ -19,9 +19,6 @@ button {
     height: 300px;
 }
 
-/* .post-tiles {
-    border: 1px solid blue;
-} */
 
 .post-form-house > #p-form {
     display: flex;
@@ -55,3 +52,25 @@ button {
 .footer {
     margin-top: 100px;
 }
+
+
+.search-hidden {
+    background-color: white;
+    margin-top: 80px;
+    height: 150px;
+    overflow: auto;
+    width: 74.4vw;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-radius: 0 0 30px 30px;
+    cursor: pointer;
+}
+
+.search-hidden::-webkit-scrollbar {
+    background-color: transparent;
+  }
+
+  .search-bar-item:hover {
+    background-color: rgb(129, 202, 245);
+  }

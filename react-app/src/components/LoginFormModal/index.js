@@ -20,14 +20,14 @@ function LoginFormModal() {
       setErrors(data);
     } else {
         closeModal()
-        history.push("/posts")
+        history.push("/")
     }
   };
 
   const demoUser = (e) => {
     e.preventDefault()
     closeModal()
-    history.push("/posts")
+    history.push("/")
     return dispatch(login("demo@aa.io", "password"))
   }
 

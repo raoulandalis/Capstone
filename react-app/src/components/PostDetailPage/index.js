@@ -5,6 +5,7 @@ import { getAllPosts} from '../../store/posts';
 import { getAllReviews } from "../../store/reviews";
 import OpenModalButton from '../OpenModalButton'
 import UpdatePost from "./UpdatePage";
+import LoginFormModal from "../LoginFormModal";
 import DeletePostModal from "./DeletePostModal";
 import CreateReviewModal from "./CreateReviewModal"
 import UpdateReviewModal from "./UpdateReview";
@@ -23,7 +24,7 @@ const PostDetailPage = () => {
     const user = useSelector(state => state.session.user)
     const reviews = Object.values(useSelector(state => state.reviews))
     const post = posts[postId]
-
+    console.log("this is post ========================================", post)
 
     useEffect(() => {
         dispatch(getAllPosts())
@@ -31,7 +32,7 @@ const PostDetailPage = () => {
     }, [dispatch])
 
     if (!post) return null
-    if (!user) return null
+    // if (!user) return null
 
     const starRating = (rating) => {
         const stars = []
@@ -45,8 +46,14 @@ const PostDetailPage = () => {
         return stars
     }
 
-    const postOwner = post.user.id === user.id
-    const userReviewsForPost = reviews.find(review => (review.post_id == postId && review.user.id === user.id))
+    let postOwner;
+    let userReviewsForPost
+
+    if (user) {
+        postOwner = post.user.id === user.id
+
+        userReviewsForPost = reviews.find(review => (review.post_id == postId && review.user.id === user.id))
+    }
 
 
     //AVERAGE NUM LOGIC
@@ -137,7 +144,7 @@ const PostDetailPage = () => {
                             <div style={{marginTop: '5px'}}>{review.content}</div>
                             <h4 style={{marginTop: '5px'}}>{review.user.username}</h4>
                         </div>
-                        {review.user.id === user.id && (
+                        {user && review.user.id === user.id && (
                             <>
                             <OpenModalButton
                                 buttonText={<i class="fa-solid fa-pen-to-square"></i>}
@@ -154,13 +161,26 @@ const PostDetailPage = () => {
                     )}
                 })}
                 </div>
+                {!user ? (
+                    <div id="p-review-btn">
+                        <OpenModalButton
+                            buttonText={'Post Review'}
+                            modalComponent={<LoginFormModal />}
+                        />
+                    </div>
+                    ) : (
+                    <>
                 {!postOwner && !userReviewsForPost && (
-                <div id="p-review-btn">
-                    <OpenModalButton
-                        buttonText={'Post Review'}
-                        modalComponent={<CreateReviewModal postId={post.id}/>}
+                    <div id="p-review-btn">
+                        <OpenModalButton
+                            buttonText={'Post Review'}
+                            modalComponent={<CreateReviewModal postId={post.id} />}
                     />
-            </div>)}
+                    </div>
+                    )}
+                    </>
+                    )}
+
             </div>
         </div>
         </>
