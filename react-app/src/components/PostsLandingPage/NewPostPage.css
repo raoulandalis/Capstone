@@ -28,6 +28,13 @@
     border-radius: 4px;
   }
 
+  .form-label > input[type="password"]{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
   .form-label > .star-ratings {
     display: flex;
     margin-left: 40px;

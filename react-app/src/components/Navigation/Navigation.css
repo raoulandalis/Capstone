@@ -41,14 +41,59 @@
 .user-menu {
   position: absolute;
   width: 100px;
-  transform: translateX(30%);
+  /* transform: translateX(30%); */
   background-color: white;
-  border: 1px solid rgb(199, 192, 192);
+  border: none;
   box-shadow: 1px 1px 2px grey;
   display: flex;
   flex-direction: column;
-  /* border-radius: var(--border-radius); */
-  /* padding: 1rem; */
-  /* overflow: hidden; */
-  margin-top: 12px;
+  right: -130px;
+  margin-top: 20px;
+}
+
+.profile-menu-button {
+  background-color: #163564;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.profile-menu-button:hover {
+  background-color: #ddd;
+  color: #163564;
+}
+
+.profile-dropdown > button {
+  background-color: #163564;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.profile-dropdown > button:hover {
+  background-color: #ddd;
+  color: #163564;
+}
+
+.login-signup {
+  display:flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100px;
+  right: -25px;
+  top: 15px;
+}
+
+.login-signup > button{
+  background-color: #163564;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.login-signup > button:hover{
+  background-color: #ddd;
+  color: #163564;
+  padding: 10px;
+  cursor: pointer;
 }
