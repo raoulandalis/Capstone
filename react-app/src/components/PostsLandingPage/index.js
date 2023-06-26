@@ -19,7 +19,7 @@ const PostsLanding = () => {
 
     const responsive = {
         desktop: {
-            breakpoint: {max: 3000, min: 1024},
+            breakpoint: {max: 3000, min: 1000},
             items: 3
         }
     }

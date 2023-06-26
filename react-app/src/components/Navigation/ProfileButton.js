@@ -36,6 +36,7 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(logout());
     history.push("/")
+    closeMenu()
   };
 
   const handleProfile = () => {
@@ -49,6 +50,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button id="profile-icon" onClick={openMenu}>
+
       <i class="fa-solid fa-circle-user"></i>
       </button>
       <div className={ulClassName} ref={ulRef}>
