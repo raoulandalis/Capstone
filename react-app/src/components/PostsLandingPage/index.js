@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '../../store/posts';
 import { NavLink, useHistory } from "react-router-dom";
@@ -13,9 +13,25 @@ const PostsLanding = () => {
     const user = useSelector(state => state.session.user)
     const history = useHistory()
 
+
+    //slice state
+    const [term, setTerm] = useState('')
+    const [searched, setSearched] = useState(false)
+
+
+    const search = posts.filter(post =>{
+        const postName = post.name.toLowerCase()
+        const postGenre = post.genre.toLowerCase()
+
+        return postName.includes(term.toLowerCase()) || postGenre.includes(term.toLowerCase())})
+
+
+
     useEffect(() => {
         dispatch(getAllPosts())
     }, [dispatch])
+
+
 
     const responsive = {
         desktop: {
@@ -47,7 +63,27 @@ const PostsLanding = () => {
             <div className="welcome-text" style={{color:'white'}}>
                 <h1 style={{fontSize:'60px'}}>Welcome.</h1>
                 <h2>Unleash Your Inner Critic.</h2>
+                <input
+                style={{width: '70vw', height: '50px', borderRadius:'10px 0 0 10px', marginTop: '10px', border: 'none', outline: 'none', paddingLeft: '30px'}}
+                type="text"
+                value={term}
+                placeholder='Search movie or genre...'
+                onChange={(e) => {
+                    setTerm(e.target.value)
+                    setSearched(false)
+                }}
+                />
+                <i class="fa-solid fa-magnifying-glass" onClick={() =>{setSearched(true)}} style={{fontSize: '25px', color: 'black', marginRight: '10px', backgroundColor: 'white', padding: '8px 10px 17px', borderRadius:'0 10px 10px 0', cursor:'pointer'}}></i>
+
             </div>
+            {term ? (
+            <div className={searched ? 'search-posts' : 'search-hidden'}>
+                {search.map((term) => (
+                    <div className="search-bar-item" onClick={() => history.push(`/posts/${term.id}`)}>{term.name}</div>
+                ))}
+            </div>
+            ) : null
+            }
             </div>
         </div>
         <h2 id="pl-message">Trending</h2>
@@ -55,7 +91,6 @@ const PostsLanding = () => {
             <Carousel infiniteLoop={true} responsive={responsive}>
                 {posts.filter(post => post.rating > 3).map((post) => (
                 <div key={post.id} className="post-tiles">
-                    {user ? (
                     <NavLink to={`/posts/${post.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                         <img src={post.post_image} style={{ height: '400px', width: '100%', objectFit: 'cover', borderRadius: '5px'}} onError={(e) => {e.target.src="https://i.imgur.com/paTs3e4.png"}}></img>
                         <h2>{post.name}</h2>
@@ -63,15 +98,6 @@ const PostsLanding = () => {
                         <h4>{post.genre}</h4>
                         <p>Posted by {post.user.username}</p>
                     </NavLink>
-                    ) : (
-                    <div style={{cursor: 'not-allowed'}}>
-                        <img src={post.post_image} style={{ height: '400px', width: '100%', objectFit: 'cover', borderRadius: '5px' }}></img>
-                        <h2>{post.name}</h2>
-                        <h3>{post.user.first_name}'s Rating {starRating(post.rating)}</h3>
-                        <h4>{post.genre}</h4>
-                        <p>Posted by {post.user.username}</p>
-                    </div>
-                    )}
                 </div>
                 ))}
             </Carousel>

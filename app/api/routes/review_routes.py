@@ -22,7 +22,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 #get all reviews
 @reviews.route("")
-@login_required
+# @login_required
 def get_reviews():
 
     reviews = Review.query.all()
