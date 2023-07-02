@@ -18,7 +18,7 @@ Live Site: [Flix](https://flix-dyz2.onrender.com/)
 ## Features
 - User registration and authentication: Users can create accounts and log in securely.
   
-- Feed: Users can few a movie feed of all the movies existing in the database posted from all users.
+- Feed: Users can view a movie feed of all the movies existing in the database posted from all users.
 
 - Posts: Users can create, read, update, and delete their own movie posts.
 
@@ -53,4 +53,4 @@ Live Site: [Flix](https://flix-dyz2.onrender.com/)
 2. [React Star Ratings](https://www.npmjs.com/package/react-star-ratings)
 
 ## Acknowledgments
-FearFace is built using various open-source libraries and frameworks including Python, Flask, SQLAlchemy, JavaScript, React and Redux.
+Flix is built using various open-source libraries and frameworks including Python, Flask, SQLAlchemy, JavaScript, React and Redux.
