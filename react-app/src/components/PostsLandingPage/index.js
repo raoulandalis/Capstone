@@ -35,10 +35,28 @@ const PostsLanding = () => {
 
     const responsive = {
         desktop: {
-            breakpoint: {max: 3000, min: 1000},
-            items: 3
+          breakpoint: { max: 3000, min: 1400 },
+          items: 4
+        },
+        largeDesktop: {
+          breakpoint: { max: 1900, min: 1600 },
+          items: 5
+        },
+        tablet: {
+          breakpoint: { max: 1400, min: 1000 },
+          items: 3
+        },
+        mobile: {
+          breakpoint: { max: 1000, min: 700 },
+          items: 2
+        },
+        smallMobile: {
+          breakpoint: { max: 700, min: 0 },
+          items: 1
         }
-    }
+      };
+
+
 
     const starRating = (rating) => {
         const stars = []

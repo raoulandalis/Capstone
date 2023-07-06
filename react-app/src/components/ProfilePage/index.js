@@ -31,10 +31,26 @@ const ProfilePage = () => {
 
     const responsive = {
         desktop: {
-            breakpoint: {max: 3000, min: 1000},
-            items: 3
+          breakpoint: { max: 3000, min: 1400 },
+          items: 4
+        },
+        largeDesktop: {
+          breakpoint: { max: 1900, min: 1600 },
+          items: 5
+        },
+        tablet: {
+          breakpoint: { max: 1400, min: 1000 },
+          items: 3
+        },
+        mobile: {
+          breakpoint: { max: 1000, min: 700 },
+          items: 2
+        },
+        smallMobile: {
+          breakpoint: { max: 700, min: 0 },
+          items: 1
         }
-    }
+      };
 
     //TOTAL USER AVERAGE MATH
 
@@ -65,7 +81,9 @@ const ProfilePage = () => {
         <>
         <div className='profile-landing-house'>
             {userPosts.length === 0 ? (
-            <h2>Let's go to the movies!</h2>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <img src="https://i.imgur.com/4uyQ9a8.png" style={{borderRadius:'20px', boxShadow: '5px 5px 5px grey'}}></img>
+            </div>
             ) : (
             <>
             <div className="user-info-house">
