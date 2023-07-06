@@ -100,7 +100,7 @@ function SignupFormModal() {
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
-						minLength='2'
+						minLength='8'
 						maxLength='30'
 						required
 					/>
