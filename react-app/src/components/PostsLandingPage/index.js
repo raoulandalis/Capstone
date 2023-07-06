@@ -35,28 +35,10 @@ const PostsLanding = () => {
 
     const responsive = {
         desktop: {
-          breakpoint: { max: 3000, min: 1400 },
-          items: 4
-        },
-        largeDesktop: {
-          breakpoint: { max: 1900, min: 1600 },
-          items: 5
-        },
-        tablet: {
-          breakpoint: { max: 1400, min: 1000 },
-          items: 3
-        },
-        mobile: {
-          breakpoint: { max: 1000, min: 700 },
-          items: 2
-        },
-        smallMobile: {
-          breakpoint: { max: 700, min: 0 },
-          items: 1
+            breakpoint: {max: 3000, min: 1000},
+            items: 3
         }
-      };
-
-
+    }
 
     const starRating = (rating) => {
         const stars = []
@@ -80,7 +62,15 @@ const PostsLanding = () => {
         <div className="bottom-landing">
             <div className="welcome-text" style={{color:'white'}}>
                 <h1 style={{fontSize:'60px'}}>Welcome.</h1>
-                <h2>Unleash Your Inner Critic.</h2>
+                <div style={{display: 'flex', gap: '20px'}}>
+                    <h2>Unleash Your Inner Critic.</h2>
+                        <a href="https://github.com/raoulandalis" target="_blank">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style={{height: '25px', marginTop: '5px'}}/>
+                        </a>
+                        <a href="https://www.linkedin.com/in/raoul-andalis/" target="_blank">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" style={{height: '25px', marginTop: '5px'}}/>
+                        </a>
+                </div>
                 <input
                 style={{width: '70vw', height: '50px', borderRadius:'10px 0 0 10px', marginTop: '10px', border: 'none', outline: 'none', paddingLeft: '30px'}}
                 type="text"
