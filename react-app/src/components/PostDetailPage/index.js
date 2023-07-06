@@ -24,7 +24,6 @@ const PostDetailPage = () => {
     const user = useSelector(state => state.session.user)
     const reviews = Object.values(useSelector(state => state.reviews))
     const post = posts[postId]
-    console.log("this is post ========================================", post)
 
     useEffect(() => {
         dispatch(getAllPosts())
