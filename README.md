@@ -52,5 +52,6 @@ Live Site: [Flix](https://flix-dyz2.onrender.com/)
    
 2. [React Star Ratings](https://www.npmjs.com/package/react-star-ratings)
 
+=======
 ## Acknowledgments
 Flix is built using various open-source libraries and frameworks including Python, Flask, SQLAlchemy, JavaScript, React and Redux.
