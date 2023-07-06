@@ -46,7 +46,6 @@ const NewReviewModal = ({postId}) => {
         const data = await dispatch(postReview(postId, formData))
 
         if (data.errors) {
-            console.log("===================================", data.errors)
             return setErrors(data.errors)
         }
 
