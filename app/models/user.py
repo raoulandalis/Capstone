@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
 
     posts = db.relationship('Post', back_populates="user")
     reviews = db.relationship('Review', back_populates='user')
+    playlists = db.relationship('Playlist', back_populates='user')
 
     @property
     def password(self):
