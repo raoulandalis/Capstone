@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '../../store/posts';
 import {getAllReviews} from '../../store/reviews'
+import { getAllPlaylists } from '../../store/playlists';
 import { NavLink } from "react-router-dom";
 import "./ProfilePage.css"
 import Carousel from "react-multi-carousel";
@@ -22,10 +23,18 @@ const ProfilePage = () => {
     const reviewCount = reviews.filter(review => review.user.id === user.id)
 
 
+    //playlists
+    const playlists = Object.values(useSelector(state => state.playlists))
+    console.log('this all playlists===============', playlists)
+
+    const user_playlist = playlists.filter(playlist => playlist.user.id === user.id)
+
+    console.log('users playlist========================', user_playlist)
 
     useEffect(() => {
         dispatch(getAllPosts())
         dispatch(getAllReviews())
+        dispatch(getAllPlaylists())
     }, [dispatch])
 
 
@@ -117,6 +126,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
             </div>
+            <h2 style={{marginBottom: '20px', marginTop: '20px'}}>My Movies</h2>
             <Carousel infiniteLoop={true} responsive={responsive}>
                 {userPosts.map(post => {
                 return (
@@ -150,6 +160,46 @@ const ProfilePage = () => {
             </Carousel>
             </>
             )}
+
+        {user_playlist.length === 0 ? (
+            <h2 style={{ marginBottom: '20px', marginTop: '20px' }}>Make a Playlist!</h2>
+            ) : (
+            user_playlist.map((playlist) => (
+                <>
+                <h2 style={{ marginBottom: '20px', marginTop: '20px' }}>{playlist.name}</h2>
+                <Carousel infiniteLoop={true} responsive={responsive}>
+                    {playlist.playlist_post.map((post) => (
+                        <NavLink
+                            to={`/posts/${post.id}`}
+                            style={{ textDecoration: 'none', color: 'black' }}
+                            key={post.id}
+                        >
+                        <div className="post-tiles">
+                        <img
+                            src={post.post_image}
+                            style={{
+                            height: '400px',
+                            width: '100%',
+                            objectFit: 'cover',
+                            borderRadius: '5px',
+                        }}
+                            onError={(e) => {
+                            e.target.src = 'https://i.imgur.com/paTs3e4.png';
+                        }}
+                            alt="Post Image"
+                        />
+                            <h2>{post.name}</h2>
+                            <h3>My Rating {starRating(post.rating)}</h3>
+                            <h4>{post.genre}</h4>
+                            <p>Posted by {post.user.username}</p>
+                            </div>
+                        </NavLink>
+                        ))}
+                </Carousel>
+                </>
+                ))
+            )}
+
         </div>
         </>
 

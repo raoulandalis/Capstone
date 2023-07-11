@@ -37,13 +37,13 @@ def get_playlists():
         res[playlist_id] = playlist
         res[playlist_id]['playlist_post'] = []
 
-
     #appends post's name to the empty array of playlist_posts
+
     for playlist_post in playlist_post_list:
         playlist_id = playlist_post['playlist_id']
         post_id = playlist_post['post_id']
         post = Post.query.get(post_id)
         if post:
-            res[playlist_id]['playlist_post'].append(post.name)
+            res[playlist_id]['playlist_post'].append(post.to_dict())
 
     return res

@@ -14,6 +14,6 @@ class PlaylistForm(FlaskForm):
     submit = SubmitField("Submit")
 
 class PlaylistPostForm(FlaskForm):
-    playlist_id = SelectField("Playlist", coerce=int, validators=[DataRequired(message="Playlist is required")])
-    post_ids = SelectMultipleField("Posts", coerce=int, validators=[DataRequired(message="Posts are required")])
+    playlist_id = IntegerField("Playlist", validators=[DataRequired(message="Playlist is required")])
+    post_ids = IntegerField("Posts", validators=[DataRequired(message="Posts are required")])
     submit = SubmitField("Submit")
