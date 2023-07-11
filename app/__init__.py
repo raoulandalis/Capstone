@@ -9,6 +9,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.routes.post_routes import posts
 from .api.routes.review_routes import reviews
+from .api.routes.playlist_routes import playlists
 from .seeds import seed_commands
 from .config import Config
 
@@ -34,6 +35,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 # new routes
 app.register_blueprint(posts, url_prefix='/api/posts')
 app.register_blueprint(reviews, url_prefix='/api/reviews')
+app.register_blueprint(playlists, url_prefix="/api/playlists")
 db.init_app(app)
 Migrate(app, db)
 
