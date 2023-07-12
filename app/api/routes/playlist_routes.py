@@ -87,3 +87,13 @@ def create_playlists():
 
 
     return {'resPlaylist': res_to}
+
+
+#delete a playlist
+@playlists.route("/<int:id>/delete", methods=['DELETE'])
+@login_required
+def delete_playlist(id):
+    playlist = Playlist.query.get(id)
+    db.session.delete(playlist)
+    db.session.commit()
+    return {"res": "Succesfully deleted"}
