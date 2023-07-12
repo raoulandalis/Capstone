@@ -21,19 +21,35 @@ const CreatePlaylistModal = () => {
     const [submitted, setSubmitted] = useState(false)
 
 
+    useEffect(() => {
+        const error = {}
+        if (!name) error.name = "Name is required"
+        if (name.length < 5 || name.length > 100) error.name = "Name must be between 5 and 100 characters"
+        if (selected.length === 0) error.selected = "Please select at least 1 movie"
+        setErrors(error)
+    }, [name, selected])
+
+
     const handlePostCheckboxChange = (event) => {
         const postId = event.target.value;
         if (event.target.checked) {
           setSelected([...selected, +postId]);
         } else {
-          setSelected(selected.filter((id) => id !== postId));
+          const index = selected.indexOf(+postId);
+          const arr = [...selected.slice(0, index), ...selected.slice(index + 1)];
+          setSelected(arr);
         }
       };
+
 
 
     const submitForm = async (e) => {
         e.preventDefault()
         setSubmitted(true)
+
+        if (Object.keys(errors).length > 0) {
+            return;
+          }
 
         const data = await dispatch(createPlaylist({'name': name, 'post_ids': selected}))
 
@@ -46,7 +62,7 @@ const CreatePlaylistModal = () => {
         }
 
         setName('')
-        setSelected('')
+        setSelected([])
         setSubmitted(false)
         closeModal()
     }
@@ -59,12 +75,14 @@ const CreatePlaylistModal = () => {
                 <form onSubmit={submitForm}id="p-form" style={{ display: 'flex', flexDirection: 'column' }}>
                     <label className="form-label">
                     Name
-                        <input type="text" name="name" value={name} placeholder="Give your playlist a name..." onChange={(e) => setName(e.target.value)}/>
+                        {errors.name && submitted && < p style={{ color: "red" }}>{errors.name}</p>}
+                        <input type="text" name="name" value={name} minLength={5} maxLength={100} placeholder="Give your playlist a name..." onChange={(e) => setName(e.target.value)}/>
                     </label>
                     <div style={{ overflow: 'scroll', height: '200px' }}>
                         <label className="form-label">
                         Choose Movie:
                     <div className="checkbox-group">
+                    {errors.selected && submitted && < p style={{ color: "red" }}>{errors.selected}</p>}
                         {posts.map(post => (
                             <div key={post.id}>
                                 <input

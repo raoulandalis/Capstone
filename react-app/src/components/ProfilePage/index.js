@@ -181,7 +181,7 @@ const ProfilePage = () => {
             user_playlist.map((playlist) => (
                 <>
                 <div style={{ display: 'flex', alignItems: 'center'}}>
-                    <h2 style={{ marginBottom: '20px', marginTop: '20px', marginRight: '10px', color: 'grey' }}>{playlist.name}</h2>
+                    <h2 style={{ marginBottom: '20px', marginTop: '20px', marginRight: '10px', color: 'grey', wordBreak: 'break-word'}}>{playlist.name}</h2>
                     <div id='d-playlist-btn'>
                     <OpenModalButton
                         buttonText={"Delete Playlist"}
