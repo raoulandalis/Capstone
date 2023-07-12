@@ -47,3 +47,51 @@ def get_playlists():
             res[playlist_id]['playlist_post'].append(post.to_dict())
 
     return res
+
+
+#create a playlist
+@playlists.route("", methods=["POST"])
+@login_required
+def create_playlists():
+    data = request.get_json()
+    # form = PlaylistForm()
+    # form["csrf_token"].data = request.cookies["csrf_token"]
+    # print("backend================", form.data['name'])
+    print("backend================", data)
+    # if form.validate_on_submit():
+    selected_user = User.query.get(current_user.id)
+
+    res = Playlist(
+            name = data['name'],
+            created_at = date.today(),
+            user = selected_user
+        )
+    db.session.add(res)
+    db.session.commit()
+
+    posts = []
+
+
+        #adds posts to playlist
+    post_ids = data['post_ids']
+    for post_id in post_ids:
+        post = Post.query.get(post_id)
+        if post:
+            posts.append(post.to_dict())
+            playlist_post = PlaylistPost(
+                playlist_id=res.id,
+                post_id=post_id
+            )
+            db.session.add(playlist_post)
+
+    db.session.commit()
+
+    res_to = res.to_dict()
+    res_to['playlist_post'] = posts
+
+
+    return {'resPlaylist': res_to}
+
+    # if form.errors:
+    #     print("backend form=============================", validation_errors_to_error_messages(form.errors))
+    #     return {'errors': form.errors}, 400

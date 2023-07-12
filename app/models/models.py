@@ -112,6 +112,8 @@ class Playlist(db.Model):
                 'last_name': self.user.last_name,
                 'email': self.user.email
             }
+            # 'post_ids': [post.post_id for post in self.playlist_posts]
+
         }
 
 
