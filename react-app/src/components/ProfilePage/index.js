@@ -4,6 +4,8 @@ import { getAllPosts } from '../../store/posts';
 import {getAllReviews} from '../../store/reviews'
 import { getAllPlaylists } from '../../store/playlists';
 import { NavLink } from "react-router-dom";
+import OpenModalButton from '../OpenModalButton';
+import CreatePlaylistModal from './CreatePlaylistModal';
 import "./ProfilePage.css"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -25,11 +27,9 @@ const ProfilePage = () => {
 
     //playlists
     const playlists = Object.values(useSelector(state => state.playlists))
-    console.log('this all playlists===============', playlists)
 
     const user_playlist = playlists.filter(playlist => playlist.user.id === user.id)
 
-    console.log('users playlist========================', user_playlist)
 
     useEffect(() => {
         dispatch(getAllPosts())
@@ -126,6 +126,12 @@ const ProfilePage = () => {
                     </div>
                 </div>
             </div>
+
+            <OpenModalButton
+            buttonText={"Create Playlist"}
+            modalComponent={<CreatePlaylistModal/>}
+            />
+
             <h2 style={{marginBottom: '20px', marginTop: '20px'}}>My Movies</h2>
             <Carousel infiniteLoop={true} responsive={responsive}>
                 {userPosts.map(post => {

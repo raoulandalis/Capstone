@@ -10,6 +10,7 @@ def text_length(form, field):
 
 class PlaylistForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired(message="Name is required"), text_length])
+    post_ids = SelectMultipleField("Posts", coerce=int, choices=[], validators=[DataRequired(message="Posts are required")])
     created_at = DateField("Date")
     submit = SubmitField("Submit")
 
