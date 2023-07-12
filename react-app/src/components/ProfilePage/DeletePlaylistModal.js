@@ -9,8 +9,6 @@ const DeletePlaylistModal = ({playlistId}) => {
     const history = useHistory()
     const { closeModal } = useModal()
 
-    console.log("this is playlistId", playlistId)
-
     const deleteBtn = async (e) => {
         e.preventDefault()
 
