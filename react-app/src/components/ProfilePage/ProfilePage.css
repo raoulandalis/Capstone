@@ -46,3 +46,45 @@
     display: flex;
     gap: 10px;
 }
+
+#d-playlist-btn > button {
+    border: 2px light grey;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: grey
+}
+
+#d-playlist-btn > button:hover {
+    border: 1px light rgb(175, 173, 173);
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: darkgrey;
+    color: white
+}
+
+#c-playlist-btn > button {
+    border: 2px rgb(59, 61, 63);
+    font-size: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: white;
+    background-color:rgb(51, 110, 161);
+    border-radius: 5px;
+}
+
+#c-playlist-btn > button:hover {
+    border: 2px rgb(59, 61, 63);
+    font-size: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: white;
+    background-color:rgb(51, 110, 161);
+    box-shadow: 3px 3px 3px grey;
+    border-radius: 5px;
+}

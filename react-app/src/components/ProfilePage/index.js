@@ -125,13 +125,20 @@ const ProfilePage = () => {
                             <h2>{userPosts.length + reviewCount.length}</h2>
                         </div>
                     </div>
+                    <div>Total Playlists
+                        <div className="pfp-count">
+                            <h2>{user_playlist.length}</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <div id="c-playlist-btn">
             <OpenModalButton
             buttonText={"Create Playlist"}
             modalComponent={<CreatePlaylistModal/>}
             />
+            </div>
 
             <h2 style={{marginBottom: '20px', marginTop: '20px', color:'grey'}}>My Movies</h2>
             <Carousel infiniteLoop={true} responsive={responsive}>
@@ -173,13 +180,15 @@ const ProfilePage = () => {
             ) : (
             user_playlist.map((playlist) => (
                 <>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                <h2 style={{ marginBottom: '20px', marginTop: '20px', marginRight: '10px', color: 'grey' }}>{playlist.name}</h2>
-                <OpenModalButton
-                buttonText={"Delete Playlist"}
-                modalComponent={<DeletePlaylistModal playlistId={playlist.id}/>}
-                />
-                </div>
+                <div style={{ display: 'flex', alignItems: 'center'}}>
+                    <h2 style={{ marginBottom: '20px', marginTop: '20px', marginRight: '10px', color: 'grey', wordBreak: 'break-word'}}>{playlist.name}</h2>
+                    <div id='d-playlist-btn'>
+                    <OpenModalButton
+                        buttonText={"Delete Playlist"}
+                        modalComponent={<DeletePlaylistModal playlistId={playlist.id}/>}
+                    />
+                    </div>
+                </div >
                 <Carousel infiniteLoop={true} responsive={responsive}>
                     {playlist.playlist_post.map((post) => (
                         <NavLink
