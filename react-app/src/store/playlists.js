@@ -1,6 +1,7 @@
 //actions
 const GET_PLAYLISTS = 'playlists/GET_PLAYLISTS'
 const CREATE_PLAYLIST = 'playlists/CREATE_PLAYLIST'
+const DELETE_PLAYLIST = 'playlists/DELETE_PLAYLIST'
 
 
 //action creators
@@ -15,6 +16,13 @@ const addPlaylist = (playlist) => {
     return {
         type: CREATE_PLAYLIST,
         playlist
+    }
+}
+
+const removePlaylist = (playlistId) => {
+    return {
+        type: DELETE_PLAYLIST,
+        playlistId
     }
 }
 
@@ -53,6 +61,18 @@ export const createPlaylist = (playlist) => async (dispatch) => {
     }
 }
 
+export const deletePlaylist = (playlistId) => async (dispatch) => {
+    console.log("delete thunk=========================")
+    const response = await fetch(`/api/playlists/${playlistId}/delete`, {
+        method: "DELETE"
+    })
+    console.log("response", response)
+
+    if (response.ok) {
+        dispatch(removePlaylist(playlistId))
+    }
+}
+
 
 //initial state
 const initialState = {}
@@ -67,6 +87,10 @@ const playlistsReducer = (state = initialState, action) => {
         case CREATE_PLAYLIST:
             newState = { ...state };
             newState[action.playlist.id] = action.playlist
+            return newState
+        case DELETE_PLAYLIST:
+            newState = { ...state };
+            delete newState[action.playlistId]
             return newState
         default:
             return state;

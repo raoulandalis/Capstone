@@ -34,12 +34,6 @@ const CreatePlaylistModal = () => {
     const submitForm = async (e) => {
         e.preventDefault()
         setSubmitted(true)
-        const formData = new FormData();
-        formData.append("name", name);
-        selected.forEach((postId) => {
-            formData.append("post_ids", postId);
-         });
-        // formData.append("post_ids", 5)
 
         const data = await dispatch(createPlaylist({'name': name, 'post_ids': selected}))
 

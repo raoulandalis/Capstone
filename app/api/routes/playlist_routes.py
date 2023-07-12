@@ -54,11 +54,7 @@ def get_playlists():
 @login_required
 def create_playlists():
     data = request.get_json()
-    # form = PlaylistForm()
-    # form["csrf_token"].data = request.cookies["csrf_token"]
-    # print("backend================", form.data['name'])
-    print("backend================", data)
-    # if form.validate_on_submit():
+
     selected_user = User.query.get(current_user.id)
 
     res = Playlist(
@@ -72,7 +68,7 @@ def create_playlists():
     posts = []
 
 
-        #adds posts to playlist
+    #adds posts to playlist
     post_ids = data['post_ids']
     for post_id in post_ids:
         post = Post.query.get(post_id)
@@ -92,6 +88,12 @@ def create_playlists():
 
     return {'resPlaylist': res_to}
 
-    # if form.errors:
-    #     print("backend form=============================", validation_errors_to_error_messages(form.errors))
-    #     return {'errors': form.errors}, 400
+
+#delete a playlist
+@playlists.route("/<int:id>/delete", methods=['DELETE'])
+@login_required
+def delete_playlist(id):
+    playlist = Playlist.query.get(id)
+    db.session.delete(playlist)
+    db.session.commit()
+    return {"res": "Succesfully deleted"}
