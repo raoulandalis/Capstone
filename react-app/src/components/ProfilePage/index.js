@@ -132,7 +132,7 @@ const ProfilePage = () => {
             modalComponent={<CreatePlaylistModal/>}
             />
 
-            <h2 style={{marginBottom: '20px', marginTop: '20px'}}>My Movies</h2>
+            <h2 style={{marginBottom: '20px', marginTop: '20px', color:'grey'}}>My Movies</h2>
             <Carousel infiniteLoop={true} responsive={responsive}>
                 {userPosts.map(post => {
                 return (
@@ -172,7 +172,7 @@ const ProfilePage = () => {
             ) : (
             user_playlist.map((playlist) => (
                 <>
-                <h2 style={{ marginBottom: '20px', marginTop: '20px' }}>{playlist.name}</h2>
+                <h2 style={{ marginBottom: '20px', marginTop: '20px', color:'grey'}}>{playlist.name}</h2>
                 <Carousel infiniteLoop={true} responsive={responsive}>
                     {playlist.playlist_post.map((post) => (
                         <NavLink
