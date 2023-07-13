@@ -92,7 +92,9 @@ const ProfilePage = () => {
         <div className='profile-landing-house'>
             {userPosts.length === 0 ? (
             <div style={{display: 'flex', justifyContent: 'center'}}>
-            <img src="https://i.imgur.com/4uyQ9a8.png" style={{borderRadius:'20px', boxShadow: '5px 5px 5px grey'}}></img>
+            <NavLink to="/create">
+            <img src="https://i.imgur.com/C5c0Isy.png" style={{borderRadius:'20px', boxShadow: '5px 5px 5px grey'}}></img>
+            </NavLink>
             </div>
             ) : (
             <>
@@ -133,12 +135,15 @@ const ProfilePage = () => {
                 </div>
             </div>
 
+            {user_playlist.length === 0 ? null : (
             <div id="c-playlist-btn">
             <OpenModalButton
-            buttonText={"Create Playlist"}
-            modalComponent={<CreatePlaylistModal/>}
+                buttonText={"Create Playlist"}
+                modalComponent={<CreatePlaylistModal/>}
             />
             </div>
+            )}
+
 
             <h2 style={{marginBottom: '20px', marginTop: '20px', color:'grey'}}>My Movies</h2>
             <Carousel infiniteLoop={true} responsive={responsive}>
@@ -176,7 +181,14 @@ const ProfilePage = () => {
             )}
 
         {user_playlist.length === 0 ? (
-            <h2 style={{ marginBottom: '20px', marginTop: '20px' }}>Make a Playlist!</h2>
+            <>
+            <div class="empty-house">
+                <h2 style={{marginBottom: '20px', marginTop: '20px'}}>Make a Playlist!</h2>
+                <div id="c-playlist-btn">
+                    <OpenModalButton buttonText="Create Playlist" modalComponent={<CreatePlaylistModal />} />
+                </div>
+            </div>
+            </>
             ) : (
             user_playlist.map((playlist) => (
                 <>
