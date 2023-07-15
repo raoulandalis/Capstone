@@ -88,7 +88,7 @@ const PostsLanding = () => {
                         </a>
                 </div>
                 <input
-                style={{width: '70vw', height: '50px', borderRadius:'10px 0 0 10px', marginTop: '10px', border: 'none', outline: 'none', paddingLeft: '30px'}}
+                style={{width: '70vw', height: '50px', borderRadius:'10px 10px 10px 10px', marginTop: '10px', border: 'none', outline: 'none', paddingLeft: '30px'}}
                 type="text"
                 value={term}
                 placeholder='Search movie or genre...'
@@ -97,7 +97,7 @@ const PostsLanding = () => {
                     setSearched(false)
                 }}
                 />
-                <i class="fa-solid fa-magnifying-glass" onClick={() =>{setSearched(true)}} style={{fontSize: '25px', color: 'black', marginRight: '10px', backgroundColor: 'white', padding: '8px 10px 17px', borderRadius:'0 10px 10px 0', cursor:'pointer'}}></i>
+                {/* <i class="fa-solid fa-magnifying-glass" style={{fontSize: '25px', color: 'black', marginRight: '10px', backgroundColor: 'white', padding: '8px 10px 17px', borderRadius:'0 10px 10px 0', cursor:'pointer'}}></i> */}
 
             </div>
             {term ? (

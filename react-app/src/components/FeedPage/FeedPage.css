@@ -24,3 +24,31 @@
 #feed-img:hover {
     box-shadow: 5px 5px 5px grey;
 }
+
+.search-hidden-feed {
+    background-color: white;
+    margin-top: -8px;
+    height: 150px;
+    overflow: auto;
+    width: 70vw;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-radius: 0 0 30px 30px;
+    cursor: pointer;
+    margin-left: 10%;
+    position: relative;
+    z-index: 5;
+    border-left: 4px solid rgb(183, 178, 36);
+    border-right: 4px solid rgb(183, 178, 36);
+    border-bottom: 4px solid rgb(183, 178, 36);
+    border-top: 4px solid white;
+}
+
+.search-hidden-feed::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+.search-bar-item-feed:hover {
+    background-color: rgb(129, 202, 245);
+}
